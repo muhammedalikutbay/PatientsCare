@@ -8,7 +8,6 @@ namespace PatientCare
 {
     internal static class Program
     {
-
         [STAThread]
         static void Main()
         {
@@ -20,7 +19,8 @@ namespace PatientCare
             var serviceProvider = services.BuildServiceProvider();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm(serviceProvider.GetRequiredService<IDatabaseService>()));
+            var mainForm = serviceProvider.GetRequiredService<Operations>();
+            Application.Run(mainForm);
         }
     }
 }

@@ -8,20 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Extensions.Configuration;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace PatientCare.Forms
 {
     public partial class Clients2 : Form
     {
-        public Clients2()
+        public required string _connectionString;
+        private readonly IConfiguration configuration;
+
+        public Clients2(IConfiguration configuration)
         {
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
             InitializeComponent();
             LoadData();
+            this.configuration = configuration;
         }
-          public void LoadData()
+
+        public void LoadData()
         {
-            using SQLiteConnection conn = new("Data Source=patientcare.db;Version=3;");
+            using SQLiteConnection conn = new(_connectionString);
             conn.Open();
 
             string query = "SELECT * FROM Patients";
@@ -33,7 +40,7 @@ namespace PatientCare.Forms
 
         private void Btn_Add_Click(object sender, System.EventArgs e)
         {
-            PatientsAdd patientsAdd = new();
+            PatientsAdd patientsAdd = new(configuration);
             patientsAdd.ShowDialog();
         }
 
@@ -45,7 +52,7 @@ namespace PatientCare.Forms
             {
                 int selectedId = Convert.ToInt32(DGW_Clients.SelectedRows[0].Cells["Id"].Value);
 
-                using SQLiteConnection conn = new("Data Source=pf55.db;Version=3;");
+                using SQLiteConnection conn = new(_connectionString);
                 conn.Open();
 
                 // Silme sorgusu

@@ -20,7 +20,7 @@ namespace PatientCare.Services
 
             string createTableQuery =
                 @"
-                      CREATE TABLE IF NOT EXISTS Patients(
+                      CREATE TABLE IF NOT EXISTS Patient(
                           ""Id""	INTEGER,
 	                      ""OwnerId""	INTEGER,
 	                      ""PatientName""	TEXT,
@@ -29,7 +29,7 @@ namespace PatientCare.Services
 	                      ""PatientNote""	TEXT,
 
 	                      PRIMARY KEY(""Id""),
-	                      FOREIGN KEY(""OwnerId"") REFERENCES ""PatientsOwner""(""Id"")
+	                      FOREIGN KEY(""OwnerId"") REFERENCES ""PatientOwner""(""Id"")
                     );";
 
             using SQLiteCommand cmd = new(createTableQuery, conn);
@@ -43,7 +43,7 @@ namespace PatientCare.Services
 
             string createTableQuery =
                 @"
-                      CREATE TABLE IF NOT EXISTS PatientsOwner(
+                      CREATE TABLE IF NOT EXISTS PatientOwner(
                             ""Id""	INTEGER,
 	                        ""OwnerName""	TEXT,
 	                        ""OwnerAdress""	TEXT,
@@ -63,7 +63,7 @@ namespace PatientCare.Services
 
             string createTableQuery =
                 @"
-                      CREATE TABLE IF NOT EXISTS Treatments(
+                      CREATE TABLE IF NOT EXISTS Treatment(
 	                    ""Id""	INTEGER,
 	                    ""PatientId""	INTEGER,
 	                    "" TreatmentDate""	DATETIME,
@@ -71,7 +71,7 @@ namespace PatientCare.Services
 	                    "" TreatmentDetails""	TEXT,
 
 	                    PRIMARY KEY(""Id""),
-	                    FOREIGN KEY(""PatientId"") REFERENCES ""Patients""(""Id"")
+	                    FOREIGN KEY(""PatientId"") REFERENCES ""Patient""(""Id"")
                     );";
 
             using SQLiteCommand cmd = new(createTableQuery, conn);

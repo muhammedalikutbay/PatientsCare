@@ -1,19 +1,27 @@
 ﻿using System.Data;
 using System.Data.SQLite;
+using Microsoft.Extensions.Configuration;
 
 namespace PatientCare.Forms
 {
     public partial class Clients : Form
     {
-        public Clients()
+        public string _connectionString;
+        private readonly IConfiguration configuration;
+
+
+        public Clients(IConfiguration configuration)
         {
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
             InitializeComponent();
             LoadData();
+            this.configuration = configuration;
+
         }
 
         public void LoadData()
         {
-            using SQLiteConnection conn = new("Data Source=pf55.db;Version=3;");
+            using SQLiteConnection conn = new(_connectionString);
             conn.Open();
             string query = "SELECT * FROM Patients";
             SQLiteDataAdapter da = new(query, conn);
@@ -24,7 +32,7 @@ namespace PatientCare.Forms
 
         private void Btn_Add_Click(object sender, System.EventArgs e)
         {
-            PatientsAdd patientsAdd = new();
+            PatientsAdd patientsAdd = new(configuration);
             patientsAdd.ShowDialog();
         }
 
@@ -36,7 +44,7 @@ namespace PatientCare.Forms
             {
                 int selectedId = Convert.ToInt32(DGW_Clients.SelectedRows[0].Cells["Id"].Value);
 
-                using SQLiteConnection conn = new("Data Source=pf55.db;Version=3;");
+                using SQLiteConnection conn = new(_connectionString);
                 conn.Open();
 
                 // Silme sorgusu

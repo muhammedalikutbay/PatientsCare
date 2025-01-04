@@ -17,112 +17,136 @@
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OwnerAdd));
-            this.Txt_Phone = new System.Windows.Forms.TextBox();
-            this.Txt_Adress = new System.Windows.Forms.TextBox();
-            this.Txt_Name = new System.Windows.Forms.TextBox();
-            this.foxBigLabel1 = new ReaLTaiizor.Controls.FoxBigLabel();
-            //this.Btn_Add = new Bunifu.Framework.UI.BunifuTileButton();
-            this.foxLabel3 = new ReaLTaiizor.Controls.FoxLabel();
-            this.foxLabel1 = new ReaLTaiizor.Controls.FoxLabel();
-            this.foxLabel2 = new ReaLTaiizor.Controls.FoxLabel();
-            this.SuspendLayout();
-      
-            this.Txt_Phone.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Txt_Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Txt_Phone.Location = new System.Drawing.Point(161, 135);
-            this.Txt_Phone.Name = "Txt_Phone";
-            this.Txt_Phone.Size = new System.Drawing.Size(253, 31);
-            this.Txt_Phone.TabIndex = 26;
-   
-            this.Txt_Adress.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Txt_Adress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Txt_Adress.Location = new System.Drawing.Point(161, 102);
-            this.Txt_Adress.Name = "Txt_Adress";
-            this.Txt_Adress.Size = new System.Drawing.Size(253, 31);
-            this.Txt_Adress.TabIndex = 25;
-       
-            this.Txt_Name.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Txt_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Txt_Name.Location = new System.Drawing.Point(161, 69);
-            this.Txt_Name.Name = "Txt_Name";
-            this.Txt_Name.Size = new System.Drawing.Size(253, 31);
-            this.Txt_Name.TabIndex = 24;
-   
-            this.foxBigLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.foxBigLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F);
-            this.foxBigLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
-            this.foxBigLabel1.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
-            this.foxBigLabel1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.foxBigLabel1.Location = new System.Drawing.Point(25, 12);
-            this.foxBigLabel1.Name = "foxBigLabel1";
-            this.foxBigLabel1.Size = new System.Drawing.Size(259, 41);
-            this.foxBigLabel1.TabIndex = 23;
-            this.foxBigLabel1.Text = "Hasta Sahibi Ekleme";
-    
-            //this.Btn_Add.BackColor = System.Drawing.Color.SeaGreen;
-            //this.Btn_Add.color = System.Drawing.Color.SeaGreen;
-            //this.Btn_Add.colorActive = System.Drawing.Color.MediumSeaGreen;
-            //this.Btn_Add.Cursor = System.Windows.Forms.Cursors.Hand;
-            //this.Btn_Add.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            //this.Btn_Add.ForeColor = System.Drawing.Color.White;
-            //this.Btn_Add.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Add.Image")));
-            //this.Btn_Add.ImagePosition = 16;
-            //this.Btn_Add.ImageZoom = 32;
-            //this.Btn_Add.LabelPosition = 32;
-            //this.Btn_Add.LabelText = "Ekle";
-            //this.Btn_Add.Location = new System.Drawing.Point(350, 175);
-            //this.Btn_Add.Margin = new System.Windows.Forms.Padding(6);
-            //this.Btn_Add.Name = "Btn_Add";
-            //this.Btn_Add.Size = new System.Drawing.Size(64, 64);
-            //this.Btn_Add.TabIndex = 22;
-            //this.Btn_Add.Click += new System.EventHandler(this.Btn_Add_Click_1);
-     
-            this.foxLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.foxLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.foxLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
-            this.foxLabel3.Location = new System.Drawing.Point(25, 139);
-            this.foxLabel3.Name = "foxLabel3";
-            this.foxLabel3.Size = new System.Drawing.Size(118, 29);
-            this.foxLabel3.TabIndex = 20;
-            this.foxLabel3.Text = "Telefon No:";
-   
-            this.foxLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.foxLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.foxLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
-            this.foxLabel1.Location = new System.Drawing.Point(25, 69);
-            this.foxLabel1.Name = "foxLabel1";
-            this.foxLabel1.Size = new System.Drawing.Size(118, 29);
-            this.foxLabel1.TabIndex = 18;
-            this.foxLabel1.Text = "Adı Soyadı:";
-        
-            this.foxLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.foxLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.foxLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
-            this.foxLabel2.Location = new System.Drawing.Point(25, 104);
-            this.foxLabel2.Name = "foxLabel2";
-            this.foxLabel2.Size = new System.Drawing.Size(118, 29);
-            this.foxLabel2.TabIndex = 19;
-            this.foxLabel2.Text = "Adresi:";
-   
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 256);
-            this.Controls.Add(this.Txt_Phone);
-            this.Controls.Add(this.Txt_Adress);
-            this.Controls.Add(this.Txt_Name);
-            this.Controls.Add(this.foxBigLabel1);
-            //this.Controls.Add(this.Btn_Add);
-            this.Controls.Add(this.foxLabel3);
-            this.Controls.Add(this.foxLabel2);
-            this.Controls.Add(this.foxLabel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "OwnerAdd";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "OwnerAdd";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            Txt_Phone = new TextBox();
+            Txt_Adress = new TextBox();
+            Txt_Name = new TextBox();
+            foxBigLabel1 = new ReaLTaiizor.Controls.FoxBigLabel();
+            foxLabel3 = new ReaLTaiizor.Controls.FoxLabel();
+            foxLabel1 = new ReaLTaiizor.Controls.FoxLabel();
+            foxLabel2 = new ReaLTaiizor.Controls.FoxLabel();
+            Btn_Save = new ReaLTaiizor.Controls.FoxButton();
+            SuspendLayout();
+            // 
+            // Txt_Phone
+            // 
+            Txt_Phone.BackColor = SystemColors.ControlLightLight;
+            Txt_Phone.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Txt_Phone.Location = new Point(188, 156);
+            Txt_Phone.Margin = new Padding(4, 3, 4, 3);
+            Txt_Phone.Name = "Txt_Phone";
+            Txt_Phone.Size = new Size(294, 31);
+            Txt_Phone.TabIndex = 26;
+            // 
+            // Txt_Adress
+            // 
+            Txt_Adress.BackColor = SystemColors.ControlLightLight;
+            Txt_Adress.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Txt_Adress.Location = new Point(188, 118);
+            Txt_Adress.Margin = new Padding(4, 3, 4, 3);
+            Txt_Adress.Name = "Txt_Adress";
+            Txt_Adress.Size = new Size(294, 31);
+            Txt_Adress.TabIndex = 25;
+            // 
+            // Txt_Name
+            // 
+            Txt_Name.BackColor = SystemColors.ControlLightLight;
+            Txt_Name.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Txt_Name.Location = new Point(188, 80);
+            Txt_Name.Margin = new Padding(4, 3, 4, 3);
+            Txt_Name.Name = "Txt_Name";
+            Txt_Name.Size = new Size(294, 31);
+            Txt_Name.TabIndex = 24;
+            // 
+            // foxBigLabel1
+            // 
+            foxBigLabel1.BackColor = Color.Transparent;
+            foxBigLabel1.Font = new Font("Segoe UI Semibold", 20F);
+            foxBigLabel1.ForeColor = Color.FromArgb(76, 88, 100);
+            foxBigLabel1.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
+            foxBigLabel1.LineColor = Color.FromArgb(200, 200, 200);
+            foxBigLabel1.Location = new Point(29, 14);
+            foxBigLabel1.Margin = new Padding(4, 3, 4, 3);
+            foxBigLabel1.Name = "foxBigLabel1";
+            foxBigLabel1.Size = new Size(302, 47);
+            foxBigLabel1.TabIndex = 23;
+            foxBigLabel1.Text = "Hasta Sahibi Ekleme";
+            // 
+            // foxLabel3
+            // 
+            foxLabel3.BackColor = Color.Transparent;
+            foxLabel3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            foxLabel3.ForeColor = Color.FromArgb(76, 88, 100);
+            foxLabel3.Location = new Point(29, 160);
+            foxLabel3.Margin = new Padding(4, 3, 4, 3);
+            foxLabel3.Name = "foxLabel3";
+            foxLabel3.Size = new Size(138, 33);
+            foxLabel3.TabIndex = 20;
+            foxLabel3.Text = "Telefon No:";
+            // 
+            // foxLabel1
+            // 
+            foxLabel1.BackColor = Color.Transparent;
+            foxLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            foxLabel1.ForeColor = Color.FromArgb(76, 88, 100);
+            foxLabel1.Location = new Point(29, 80);
+            foxLabel1.Margin = new Padding(4, 3, 4, 3);
+            foxLabel1.Name = "foxLabel1";
+            foxLabel1.Size = new Size(138, 33);
+            foxLabel1.TabIndex = 18;
+            foxLabel1.Text = "Adı Soyadı:";
+            // 
+            // foxLabel2
+            // 
+            foxLabel2.BackColor = Color.Transparent;
+            foxLabel2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            foxLabel2.ForeColor = Color.FromArgb(76, 88, 100);
+            foxLabel2.Location = new Point(29, 120);
+            foxLabel2.Margin = new Padding(4, 3, 4, 3);
+            foxLabel2.Name = "foxLabel2";
+            foxLabel2.Size = new Size(138, 33);
+            foxLabel2.TabIndex = 19;
+            foxLabel2.Text = "Adresi:";
+            // 
+            // Btn_Save
+            // 
+            Btn_Save.BackColor = Color.Transparent;
+            Btn_Save.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Save.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_Save.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Save.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_Save.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_Save.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_Save.EnabledCalc = true;
+            Btn_Save.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Btn_Save.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_Save.Location = new Point(362, 204);
+            Btn_Save.Name = "Btn_Save";
+            Btn_Save.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_Save.Size = new Size(120, 40);
+            Btn_Save.TabIndex = 27;
+            Btn_Save.Text = "Kaydet";
+            Btn_Save.Click += foxButton1_Click;
+            // 
+            // OwnerAdd
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(510, 278);
+            Controls.Add(Btn_Save);
+            Controls.Add(Txt_Phone);
+            Controls.Add(Txt_Adress);
+            Controls.Add(Txt_Name);
+            Controls.Add(foxBigLabel1);
+            Controls.Add(foxLabel3);
+            Controls.Add(foxLabel2);
+            Controls.Add(foxLabel1);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "OwnerAdd";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "OwnerAdd";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -134,5 +158,6 @@
         private ReaLTaiizor.Controls.FoxLabel foxLabel3;
         private ReaLTaiizor.Controls.FoxLabel foxLabel1;
         private ReaLTaiizor.Controls.FoxLabel foxLabel2;
+        private ReaLTaiizor.Controls.FoxButton Btn_Save;
     }
 }

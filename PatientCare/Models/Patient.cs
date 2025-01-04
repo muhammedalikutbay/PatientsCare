@@ -6,6 +6,7 @@
         public string? PatientName { get; set; }  // TEXT
         public string? PatientGender { get; set; } // TEXT
         public string? RegistrationDate { get; set; } // DATETIME
+        public string? BirthDate { get; set; } // DATETIME
         public string? PatientNote { get; set; } // TEXT
     }
 }

@@ -1,7 +1,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PatientCare.Forms;
 using PatientCare.Interfaces;
 using PatientCare.Services;
+using PatientCare.Repositories;
 
 namespace PatientCare
 {
@@ -19,6 +21,10 @@ namespace PatientCare
 
             services.AddSingleton<IDatabaseService, DatabaseService>();
             services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton<Operations>();
+            services.AddSingleton<OwnerAdd>();
+            services.AddSingleton<PatientsAdd>();
+            services.AddSingleton(typeof(IDatabaseRepository<>), typeof(DatabaseRepository<>));
 
             return services;
         }

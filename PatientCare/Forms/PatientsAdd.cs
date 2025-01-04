@@ -2,23 +2,27 @@
 using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
+using Microsoft.Extensions.Configuration;
 using PatientCare.Models;
 
 namespace PatientCare.Forms
 {
     public partial class PatientsAdd : Form
     {
+        private readonly IConfiguration configuration;
+        public string _connectionString;
         int ownerid;
 
-        public PatientsAdd()
+        public PatientsAdd(IConfiguration configuration)
         {
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
             InitializeComponent();
             LoadOwners();
         }
 
         private void LoadOwners()
         {
-            using SQLiteConnection conn = new("Data Source=pf55.db;Version=3;");
+            using SQLiteConnection conn = new(_connectionString);
             conn.Open();
             string query = "SELECT Id, OwnerName FROM PatientsOwner"; // OwnerName ve Id sorgusu
             SQLiteCommand cmd = new(query, conn);
@@ -42,9 +46,9 @@ namespace PatientCare.Forms
         private void Btn_OwnerAdd_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            OwnerAdd ownerAdd = new();
-            ownerAdd.TopMost = true;
-            ownerAdd.Show();
+            //OwnerAdd ownerAdd = new(configuration);
+            //ownerAdd.TopMost = true;
+            //ownerAdd.Show();
         }
 
         private void Btn_Add_Click(object sender, EventArgs e)
@@ -58,14 +62,14 @@ namespace PatientCare.Forms
                 PatientNote = Txt_Note.Text,
             };
 
-            using SQLiteConnection conn = new("Data Source=pf55.db;Version=3;");
+            using SQLiteConnection conn = new(_connectionString);
             conn.Open();
 
             string query =
                 $"INSERT INTO Patients (PatientName,OwnerId,RegistrationDate,PatientGender,PatientNote) VALUES ('{patient.PatientName}',{patient.OwnerId},'{patient.RegistrationDate}','{patient.PatientGender}','{patient.PatientNote}')";
             using SQLiteCommand cmd = new(query, conn);
             cmd.ExecuteNonQuery();
-            Clients clients = new();
+            Clients clients = new(configuration);
             MessageBox.Show("Veri başarıyla eklendi!");
             clients.LoadData();
             this.Close();
