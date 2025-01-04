@@ -565,13 +565,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1182, 586);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Operations";
-            Text = "Operations";
+            Text = "PatientCare v0.01";
             ((System.ComponentModel.ISupportInitialize)Dgw_OwnerList).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource1).EndInit();
