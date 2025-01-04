@@ -75,12 +75,12 @@ public class DatabaseRepository<T> : IDatabaseRepository<T> where T : class, new
 
     private IEnumerable<string> GetColumns()
     {
-        return typeof(T).GetProperties().Select(p => p.Name);
+        return typeof(T).GetProperties().Where(p => p.Name != "Id").Select(p => p.Name);
     }
 
     private IEnumerable<string> GetValues(T entity)
     {
-        return typeof(T).GetProperties().Select(p =>
+        return typeof(T).GetProperties().Where(p => p.Name != "Id").Select(p =>
         {
             var value = p.GetValue(entity);
             return value is string ? $"'{value}'" : value.ToString();
