@@ -30,16 +30,16 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Operations));
-            foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
-            foxButton1 = new ReaLTaiizor.Controls.FoxButton();
+            Txt_Search = new ReaLTaiizor.Controls.FoxTextBox();
+            Btn_Search = new ReaLTaiizor.Controls.FoxButton();
             Dgw_OwnerList = new DataGridView();
             ownerNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             patientOwnerBindingSource = new BindingSource(components);
             patientOwnerBindingSource1 = new BindingSource(components);
-            foxBigLabel1 = new ReaLTaiizor.Controls.FoxBigLabel();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            Lbl_ClientInfo = new ReaLTaiizor.Controls.FoxBigLabel();
+            Lbl_Name = new Label();
+            Lbl_Adress = new Label();
+            Lbl_Phone = new Label();
             patientBindingSource = new BindingSource(components);
             patientBindingSource1 = new BindingSource(components);
             patientBindingSource2 = new BindingSource(components);
@@ -48,24 +48,24 @@
             patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             BirthDate = new DataGridViewTextBoxColumn();
-            foxButton2 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton3 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton4 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton5 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton6 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton7 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton8 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton10 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton11 = new ReaLTaiizor.Controls.FoxButton();
-            foxBigLabel2 = new ReaLTaiizor.Controls.FoxBigLabel();
-            foxBigLabel3 = new ReaLTaiizor.Controls.FoxBigLabel();
-            foxTextBox2 = new ReaLTaiizor.Controls.FoxTextBox();
-            foxTextBox3 = new ReaLTaiizor.Controls.FoxTextBox();
-            foxTextBox4 = new ReaLTaiizor.Controls.FoxTextBox();
+            Btn_PatientInfo = new ReaLTaiizor.Controls.FoxButton();
+            Btn_VacCalender = new ReaLTaiizor.Controls.FoxButton();
+            Btn_Sales = new ReaLTaiizor.Controls.FoxButton();
+            Btn_Desease = new ReaLTaiizor.Controls.FoxButton();
+            Btn_AddPatient = new ReaLTaiizor.Controls.FoxButton();
+            Btn_AddClient = new ReaLTaiizor.Controls.FoxButton();
+            Btn_SaleInfo = new ReaLTaiizor.Controls.FoxButton();
+            Btn_EditPatient = new ReaLTaiizor.Controls.FoxButton();
+            Btn_EditClient = new ReaLTaiizor.Controls.FoxButton();
+            Lbl_ClientPatients = new ReaLTaiizor.Controls.FoxBigLabel();
+            Lbl_Operations = new ReaLTaiizor.Controls.FoxBigLabel();
+            Txt_Name = new ReaLTaiizor.Controls.FoxTextBox();
+            Txt_Adress = new ReaLTaiizor.Controls.FoxTextBox();
+            Txt_Phone = new ReaLTaiizor.Controls.FoxTextBox();
             panel1 = new Panel();
             panel2 = new Panel();
             Dgw_ToDoList = new DataGridView();
-            foxBigLabel4 = new ReaLTaiizor.Controls.FoxBigLabel();
+            Lbl_ToDo = new ReaLTaiizor.Controls.FoxBigLabel();
             panel3 = new Panel();
             ((System.ComponentModel.ISupportInitialize)Dgw_OwnerList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource).BeginInit();
@@ -81,42 +81,47 @@
             panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // foxTextBox1
+            // Txt_Search
             // 
-            foxTextBox1.BackColor = Color.Transparent;
-            foxTextBox1.EnabledCalc = true;
-            foxTextBox1.Font = new Font("Segoe UI", 10F);
-            foxTextBox1.ForeColor = Color.FromArgb(66, 78, 90);
-            foxTextBox1.Location = new Point(12, 15);
-            foxTextBox1.MaxLength = 32767;
-            foxTextBox1.MultiLine = false;
-            foxTextBox1.Name = "foxTextBox1";
-            foxTextBox1.ReadOnly = false;
-            foxTextBox1.Size = new Size(264, 32);
-            foxTextBox1.TabIndex = 0;
-            foxTextBox1.Text = "foxTextBox1";
-            foxTextBox1.TextAlign = HorizontalAlignment.Left;
-            foxTextBox1.UseSystemPasswordChar = false;
+            Txt_Search.BackColor = Color.Transparent;
+            Txt_Search.EnabledCalc = true;
+            Txt_Search.Font = new Font("Segoe UI", 10F);
+            Txt_Search.ForeColor = Color.Gray;
+            Txt_Search.Location = new Point(12, 15);
+            Txt_Search.Margin = new Padding(4, 3, 4, 3);
+            Txt_Search.MaxLength = 32767;
+            Txt_Search.MultiLine = false;
+            Txt_Search.Name = "Txt_Search";
+            Txt_Search.ReadOnly = false;
+            Txt_Search.Size = new Size(264, 32);
+            Txt_Search.TabIndex = 0;
+            Txt_Search.Text = "Hasta Sahibi Arama";
+            Txt_Search.TextAlign = HorizontalAlignment.Left;
+            Txt_Search.UseSystemPasswordChar = false;
+            Txt_Search.TextChanged += Txt_Search_TextChanged;
+            Txt_Search.Enter += Txt_Search_Enter;
+            Txt_Search.Leave += Txt_Search_Leave;
             // 
-            // foxButton1
+            // Btn_Search
             // 
-            foxButton1.BackColor = Color.Transparent;
-            foxButton1.BackgroundImage = (Image)resources.GetObject("foxButton1.BackgroundImage");
-            foxButton1.BackgroundImageLayout = ImageLayout.None;
-            foxButton1.BaseColor = Color.Transparent;
-            foxButton1.BorderColor = Color.Transparent;
-            foxButton1.DisabledBaseColor = Color.Transparent;
-            foxButton1.DisabledBorderColor = Color.Transparent;
-            foxButton1.DisabledTextColor = Color.Transparent;
-            foxButton1.DownColor = Color.Transparent;
-            foxButton1.EnabledCalc = true;
-            foxButton1.Font = new Font("Segoe UI", 10F);
-            foxButton1.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton1.Location = new Point(282, 15);
-            foxButton1.Name = "foxButton1";
-            foxButton1.OverColor = Color.Transparent;
-            foxButton1.Size = new Size(32, 32);
-            foxButton1.TabIndex = 1;
+            Btn_Search.BackColor = Color.Transparent;
+            Btn_Search.BackgroundImage = (Image)resources.GetObject("Btn_Search.BackgroundImage");
+            Btn_Search.BackgroundImageLayout = ImageLayout.None;
+            Btn_Search.BaseColor = Color.Transparent;
+            Btn_Search.BorderColor = Color.Transparent;
+            Btn_Search.DisabledBaseColor = Color.Transparent;
+            Btn_Search.DisabledBorderColor = Color.Transparent;
+            Btn_Search.DisabledTextColor = Color.Transparent;
+            Btn_Search.DownColor = Color.Transparent;
+            Btn_Search.EnabledCalc = true;
+            Btn_Search.Font = new Font("Segoe UI", 10F);
+            Btn_Search.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_Search.Location = new Point(282, 15);
+            Btn_Search.Margin = new Padding(4, 3, 4, 3);
+            Btn_Search.Name = "Btn_Search";
+            Btn_Search.OverColor = Color.Transparent;
+            Btn_Search.Size = new Size(31, 32);
+            Btn_Search.TabIndex = 1;
             // 
             // Dgw_OwnerList
             // 
@@ -126,8 +131,9 @@
             Dgw_OwnerList.DataSource = patientOwnerBindingSource;
             Dgw_OwnerList.EditMode = DataGridViewEditMode.EditProgrammatically;
             Dgw_OwnerList.Location = new Point(12, 60);
+            Dgw_OwnerList.Margin = new Padding(4, 3, 4, 3);
             Dgw_OwnerList.Name = "Dgw_OwnerList";
-            Dgw_OwnerList.Size = new Size(302, 514);
+            Dgw_OwnerList.Size = new Size(302, 513);
             Dgw_OwnerList.TabIndex = 2;
             // 
             // ownerNameDataGridViewTextBoxColumn
@@ -145,51 +151,55 @@
             // 
             patientOwnerBindingSource1.DataSource = typeof(Models.PatientOwner);
             // 
-            // foxBigLabel1
+            // Lbl_ClientInfo
             // 
-            foxBigLabel1.BackColor = Color.Transparent;
-            foxBigLabel1.Font = new Font("Segoe UI Semibold", 20F);
-            foxBigLabel1.ForeColor = Color.FromArgb(76, 88, 100);
-            foxBigLabel1.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
-            foxBigLabel1.LineColor = Color.FromArgb(200, 200, 200);
-            foxBigLabel1.Location = new Point(12, 12);
-            foxBigLabel1.Name = "foxBigLabel1";
-            foxBigLabel1.Size = new Size(524, 41);
-            foxBigLabel1.TabIndex = 3;
-            foxBigLabel1.Text = "Müşteri Bilgileri";
+            Lbl_ClientInfo.BackColor = Color.Transparent;
+            Lbl_ClientInfo.Font = new Font("Segoe UI Semibold", 20F);
+            Lbl_ClientInfo.ForeColor = Color.FromArgb(76, 88, 100);
+            Lbl_ClientInfo.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
+            Lbl_ClientInfo.LineColor = Color.FromArgb(200, 200, 200);
+            Lbl_ClientInfo.Location = new Point(12, 12);
+            Lbl_ClientInfo.Margin = new Padding(4, 3, 4, 3);
+            Lbl_ClientInfo.Name = "Lbl_ClientInfo";
+            Lbl_ClientInfo.Size = new Size(524, 42);
+            Lbl_ClientInfo.TabIndex = 3;
+            Lbl_ClientInfo.Text = "Müşteri Bilgileri";
             // 
-            // label1
+            // Lbl_Name
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label1.Location = new Point(13, 62);
-            label1.Name = "label1";
-            label1.Size = new Size(116, 30);
-            label1.TabIndex = 6;
-            label1.Text = "Adı Soyadı:";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            Lbl_Name.AutoSize = true;
+            Lbl_Name.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Lbl_Name.Location = new Point(12, 62);
+            Lbl_Name.Margin = new Padding(4, 0, 4, 0);
+            Lbl_Name.Name = "Lbl_Name";
+            Lbl_Name.Size = new Size(116, 30);
+            Lbl_Name.TabIndex = 6;
+            Lbl_Name.Text = "Adı Soyadı:";
+            Lbl_Name.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // Lbl_Adress
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label2.Location = new Point(13, 100);
-            label2.Name = "label2";
-            label2.Size = new Size(71, 30);
-            label2.TabIndex = 6;
-            label2.Text = "Adres:";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            Lbl_Adress.AutoSize = true;
+            Lbl_Adress.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Lbl_Adress.Location = new Point(12, 100);
+            Lbl_Adress.Margin = new Padding(4, 0, 4, 0);
+            Lbl_Adress.Name = "Lbl_Adress";
+            Lbl_Adress.Size = new Size(71, 30);
+            Lbl_Adress.TabIndex = 6;
+            Lbl_Adress.Text = "Adres:";
+            Lbl_Adress.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // Lbl_Phone
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label3.Location = new Point(13, 138);
-            label3.Name = "label3";
-            label3.Size = new Size(119, 30);
-            label3.TabIndex = 6;
-            label3.Text = "Telefon No:";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            Lbl_Phone.AutoSize = true;
+            Lbl_Phone.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Lbl_Phone.Location = new Point(12, 138);
+            Lbl_Phone.Margin = new Padding(4, 0, 4, 0);
+            Lbl_Phone.Name = "Lbl_Phone";
+            Lbl_Phone.Size = new Size(119, 30);
+            Lbl_Phone.TabIndex = 6;
+            Lbl_Phone.Text = "Telefon No:";
+            Lbl_Phone.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // patientBindingSource
             // 
@@ -214,6 +224,7 @@
             Dgw_PatientList.Columns.AddRange(new DataGridViewColumn[] { patientNameDataGridViewTextBoxColumn, patientGenderDataGridViewTextBoxColumn, BirthDate });
             Dgw_PatientList.DataSource = patientBindingSource1;
             Dgw_PatientList.Location = new Point(12, 233);
+            Dgw_PatientList.Margin = new Padding(4, 3, 4, 3);
             Dgw_PatientList.Name = "Dgw_PatientList";
             Dgw_PatientList.Size = new Size(524, 150);
             Dgw_PatientList.TabIndex = 7;
@@ -238,340 +249,356 @@
             BirthDate.HeaderText = "BirthDate";
             BirthDate.Name = "BirthDate";
             // 
-            // foxButton2
+            // Btn_PatientInfo
             // 
-            foxButton2.BackColor = Color.Transparent;
-            foxButton2.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton2.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton2.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton2.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton2.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton2.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton2.EnabledCalc = true;
-            foxButton2.Font = new Font("Segoe UI", 10F);
-            foxButton2.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton2.Location = new Point(12, 389);
-            foxButton2.Name = "foxButton2";
-            foxButton2.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton2.Size = new Size(120, 40);
-            foxButton2.TabIndex = 8;
-            foxButton2.Text = "Hayvan Bilgileri";
+            Btn_PatientInfo.BackColor = Color.Transparent;
+            Btn_PatientInfo.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_PatientInfo.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_PatientInfo.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_PatientInfo.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_PatientInfo.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_PatientInfo.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_PatientInfo.EnabledCalc = true;
+            Btn_PatientInfo.Font = new Font("Segoe UI", 10F);
+            Btn_PatientInfo.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_PatientInfo.Location = new Point(12, 389);
+            Btn_PatientInfo.Margin = new Padding(4, 3, 4, 3);
+            Btn_PatientInfo.Name = "Btn_PatientInfo";
+            Btn_PatientInfo.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_PatientInfo.Size = new Size(120, 40);
+            Btn_PatientInfo.TabIndex = 8;
+            Btn_PatientInfo.Text = "Hayvan Bilgileri";
             // 
-            // foxButton3
+            // Btn_VacCalender
             // 
-            foxButton3.BackColor = Color.Transparent;
-            foxButton3.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton3.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton3.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton3.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton3.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton3.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton3.EnabledCalc = true;
-            foxButton3.Font = new Font("Segoe UI", 10F);
-            foxButton3.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton3.Location = new Point(144, 389);
-            foxButton3.Name = "foxButton3";
-            foxButton3.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton3.Size = new Size(120, 40);
-            foxButton3.TabIndex = 8;
-            foxButton3.Text = "Aşılama Takvimi";
+            Btn_VacCalender.BackColor = Color.Transparent;
+            Btn_VacCalender.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_VacCalender.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_VacCalender.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_VacCalender.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_VacCalender.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_VacCalender.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_VacCalender.EnabledCalc = true;
+            Btn_VacCalender.Font = new Font("Segoe UI", 10F);
+            Btn_VacCalender.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_VacCalender.Location = new Point(144, 389);
+            Btn_VacCalender.Margin = new Padding(4, 3, 4, 3);
+            Btn_VacCalender.Name = "Btn_VacCalender";
+            Btn_VacCalender.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_VacCalender.Size = new Size(120, 40);
+            Btn_VacCalender.TabIndex = 8;
+            Btn_VacCalender.Text = "Aşılama Takvimi";
             // 
-            // foxButton4
+            // Btn_Sales
             // 
-            foxButton4.BackColor = Color.Transparent;
-            foxButton4.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton4.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton4.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton4.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton4.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton4.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton4.EnabledCalc = true;
-            foxButton4.Font = new Font("Segoe UI", 10F);
-            foxButton4.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton4.Location = new Point(12, 488);
-            foxButton4.Name = "foxButton4";
-            foxButton4.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton4.RightToLeft = RightToLeft.No;
-            foxButton4.Size = new Size(120, 40);
-            foxButton4.TabIndex = 8;
-            foxButton4.Text = "Direkt Satış";
+            Btn_Sales.BackColor = Color.Transparent;
+            Btn_Sales.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Sales.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_Sales.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Sales.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_Sales.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_Sales.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_Sales.EnabledCalc = true;
+            Btn_Sales.Font = new Font("Segoe UI", 10F);
+            Btn_Sales.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_Sales.Location = new Point(12, 488);
+            Btn_Sales.Margin = new Padding(4, 3, 4, 3);
+            Btn_Sales.Name = "Btn_Sales";
+            Btn_Sales.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_Sales.RightToLeft = RightToLeft.No;
+            Btn_Sales.Size = new Size(120, 40);
+            Btn_Sales.TabIndex = 8;
+            Btn_Sales.Text = "Direkt Satış";
             // 
-            // foxButton5
+            // Btn_Desease
             // 
-            foxButton5.BackColor = Color.Transparent;
-            foxButton5.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton5.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton5.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton5.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton5.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton5.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton5.EnabledCalc = true;
-            foxButton5.Font = new Font("Segoe UI", 10F);
-            foxButton5.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton5.Location = new Point(144, 488);
-            foxButton5.Name = "foxButton5";
-            foxButton5.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton5.RightToLeft = RightToLeft.No;
-            foxButton5.Size = new Size(120, 40);
-            foxButton5.TabIndex = 8;
-            foxButton5.Text = "Hastalık";
+            Btn_Desease.BackColor = Color.Transparent;
+            Btn_Desease.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Desease.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_Desease.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Desease.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_Desease.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_Desease.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_Desease.EnabledCalc = true;
+            Btn_Desease.Font = new Font("Segoe UI", 10F);
+            Btn_Desease.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_Desease.Location = new Point(144, 488);
+            Btn_Desease.Margin = new Padding(4, 3, 4, 3);
+            Btn_Desease.Name = "Btn_Desease";
+            Btn_Desease.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_Desease.RightToLeft = RightToLeft.No;
+            Btn_Desease.Size = new Size(120, 40);
+            Btn_Desease.TabIndex = 8;
+            Btn_Desease.Text = "Hastalık";
             // 
-            // foxButton6
+            // Btn_AddPatient
             // 
-            foxButton6.BackColor = Color.Transparent;
-            foxButton6.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton6.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton6.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton6.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton6.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton6.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton6.EnabledCalc = true;
-            foxButton6.Font = new Font("Segoe UI", 10F);
-            foxButton6.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton6.Location = new Point(270, 488);
-            foxButton6.Name = "foxButton6";
-            foxButton6.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton6.RightToLeft = RightToLeft.No;
-            foxButton6.Size = new Size(120, 40);
-            foxButton6.TabIndex = 8;
-            foxButton6.Text = "Hayvan Ekle";
+            Btn_AddPatient.BackColor = Color.Transparent;
+            Btn_AddPatient.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_AddPatient.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_AddPatient.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_AddPatient.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_AddPatient.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_AddPatient.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_AddPatient.EnabledCalc = true;
+            Btn_AddPatient.Font = new Font("Segoe UI", 10F);
+            Btn_AddPatient.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_AddPatient.Location = new Point(270, 488);
+            Btn_AddPatient.Margin = new Padding(4, 3, 4, 3);
+            Btn_AddPatient.Name = "Btn_AddPatient";
+            Btn_AddPatient.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_AddPatient.RightToLeft = RightToLeft.No;
+            Btn_AddPatient.Size = new Size(120, 40);
+            Btn_AddPatient.TabIndex = 8;
+            Btn_AddPatient.Text = "Hayvan Ekle";
             // 
-            // foxButton7
+            // Btn_AddClient
             // 
-            foxButton7.BackColor = Color.Transparent;
-            foxButton7.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton7.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton7.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton7.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton7.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton7.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton7.EnabledCalc = true;
-            foxButton7.Font = new Font("Segoe UI", 10F);
-            foxButton7.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton7.Location = new Point(396, 488);
-            foxButton7.Name = "foxButton7";
-            foxButton7.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton7.RightToLeft = RightToLeft.No;
-            foxButton7.Size = new Size(120, 40);
-            foxButton7.TabIndex = 8;
-            foxButton7.Text = "Yeni Müşteri";
-            foxButton7.Click += foxButton7_Click;
+            Btn_AddClient.BackColor = Color.Transparent;
+            Btn_AddClient.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_AddClient.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_AddClient.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_AddClient.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_AddClient.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_AddClient.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_AddClient.EnabledCalc = true;
+            Btn_AddClient.Font = new Font("Segoe UI", 10F);
+            Btn_AddClient.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_AddClient.Location = new Point(396, 488);
+            Btn_AddClient.Margin = new Padding(4, 3, 4, 3);
+            Btn_AddClient.Name = "Btn_AddClient";
+            Btn_AddClient.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_AddClient.RightToLeft = RightToLeft.No;
+            Btn_AddClient.Size = new Size(120, 40);
+            Btn_AddClient.TabIndex = 8;
+            Btn_AddClient.Text = "Yeni Müşteri";
+            Btn_AddClient.Click += Btn_AddClient_Click;
             // 
-            // foxButton8
+            // Btn_SaleInfo
             // 
-            foxButton8.BackColor = Color.Transparent;
-            foxButton8.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton8.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton8.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton8.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton8.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton8.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton8.EnabledCalc = true;
-            foxButton8.Font = new Font("Segoe UI", 10F);
-            foxButton8.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton8.Location = new Point(12, 534);
-            foxButton8.Name = "foxButton8";
-            foxButton8.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton8.Size = new Size(120, 40);
-            foxButton8.TabIndex = 8;
-            foxButton8.Text = "Satış İşlemleri";
+            Btn_SaleInfo.BackColor = Color.Transparent;
+            Btn_SaleInfo.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_SaleInfo.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_SaleInfo.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_SaleInfo.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_SaleInfo.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_SaleInfo.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_SaleInfo.EnabledCalc = true;
+            Btn_SaleInfo.Font = new Font("Segoe UI", 10F);
+            Btn_SaleInfo.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_SaleInfo.Location = new Point(12, 534);
+            Btn_SaleInfo.Margin = new Padding(4, 3, 4, 3);
+            Btn_SaleInfo.Name = "Btn_SaleInfo";
+            Btn_SaleInfo.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_SaleInfo.Size = new Size(120, 40);
+            Btn_SaleInfo.TabIndex = 8;
+            Btn_SaleInfo.Text = "Satış İşlemleri";
             // 
-            // foxButton10
+            // Btn_EditPatient
             // 
-            foxButton10.BackColor = Color.Transparent;
-            foxButton10.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton10.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton10.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton10.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton10.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton10.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton10.EnabledCalc = true;
-            foxButton10.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            foxButton10.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton10.Location = new Point(144, 534);
-            foxButton10.Name = "foxButton10";
-            foxButton10.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton10.Size = new Size(151, 40);
-            foxButton10.TabIndex = 8;
-            foxButton10.Text = "Hayvan Bilgileri Düzelt";
+            Btn_EditPatient.BackColor = Color.Transparent;
+            Btn_EditPatient.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_EditPatient.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_EditPatient.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_EditPatient.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_EditPatient.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_EditPatient.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_EditPatient.EnabledCalc = true;
+            Btn_EditPatient.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Btn_EditPatient.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_EditPatient.Location = new Point(144, 534);
+            Btn_EditPatient.Margin = new Padding(4, 3, 4, 3);
+            Btn_EditPatient.Name = "Btn_EditPatient";
+            Btn_EditPatient.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_EditPatient.Size = new Size(150, 40);
+            Btn_EditPatient.TabIndex = 8;
+            Btn_EditPatient.Text = "Hayvan Bilgileri Düzelt";
             // 
-            // foxButton11
+            // Btn_EditClient
             // 
-            foxButton11.BackColor = Color.Transparent;
-            foxButton11.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton11.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton11.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton11.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton11.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton11.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton11.EnabledCalc = true;
-            foxButton11.Font = new Font("Segoe UI", 10F);
-            foxButton11.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton11.Location = new Point(301, 534);
-            foxButton11.Name = "foxButton11";
-            foxButton11.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton11.Size = new Size(147, 40);
-            foxButton11.TabIndex = 8;
-            foxButton11.Text = "Müşteri Bilgileri Düzelt";
+            Btn_EditClient.BackColor = Color.Transparent;
+            Btn_EditClient.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_EditClient.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_EditClient.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_EditClient.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_EditClient.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_EditClient.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_EditClient.EnabledCalc = true;
+            Btn_EditClient.Font = new Font("Segoe UI", 10F);
+            Btn_EditClient.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_EditClient.Location = new Point(301, 534);
+            Btn_EditClient.Margin = new Padding(4, 3, 4, 3);
+            Btn_EditClient.Name = "Btn_EditClient";
+            Btn_EditClient.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_EditClient.Size = new Size(147, 40);
+            Btn_EditClient.TabIndex = 8;
+            Btn_EditClient.Text = "Müşteri Bilgileri Düzelt";
             // 
-            // foxBigLabel2
+            // Lbl_ClientPatients
             // 
-            foxBigLabel2.BackColor = Color.Transparent;
-            foxBigLabel2.Font = new Font("Segoe UI Semibold", 20F);
-            foxBigLabel2.ForeColor = Color.FromArgb(76, 88, 100);
-            foxBigLabel2.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
-            foxBigLabel2.LineColor = Color.FromArgb(200, 200, 200);
-            foxBigLabel2.Location = new Point(12, 186);
-            foxBigLabel2.Name = "foxBigLabel2";
-            foxBigLabel2.Size = new Size(524, 41);
-            foxBigLabel2.TabIndex = 3;
-            foxBigLabel2.Text = "Sahibi Olduğu Hayvanlar";
+            Lbl_ClientPatients.BackColor = Color.Transparent;
+            Lbl_ClientPatients.Font = new Font("Segoe UI Semibold", 20F);
+            Lbl_ClientPatients.ForeColor = Color.FromArgb(76, 88, 100);
+            Lbl_ClientPatients.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
+            Lbl_ClientPatients.LineColor = Color.FromArgb(200, 200, 200);
+            Lbl_ClientPatients.Location = new Point(12, 186);
+            Lbl_ClientPatients.Margin = new Padding(4, 3, 4, 3);
+            Lbl_ClientPatients.Name = "Lbl_ClientPatients";
+            Lbl_ClientPatients.Size = new Size(524, 42);
+            Lbl_ClientPatients.TabIndex = 3;
+            Lbl_ClientPatients.Text = "Sahibi Olduğu Hayvanlar";
             // 
-            // foxBigLabel3
+            // Lbl_Operations
             // 
-            foxBigLabel3.BackColor = Color.Transparent;
-            foxBigLabel3.Font = new Font("Segoe UI Semibold", 20F);
-            foxBigLabel3.ForeColor = Color.FromArgb(76, 88, 100);
-            foxBigLabel3.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
-            foxBigLabel3.LineColor = Color.FromArgb(200, 200, 200);
-            foxBigLabel3.Location = new Point(12, 435);
-            foxBigLabel3.Name = "foxBigLabel3";
-            foxBigLabel3.Size = new Size(524, 41);
-            foxBigLabel3.TabIndex = 3;
-            foxBigLabel3.Text = "İşlemler";
+            Lbl_Operations.BackColor = Color.Transparent;
+            Lbl_Operations.Font = new Font("Segoe UI Semibold", 20F);
+            Lbl_Operations.ForeColor = Color.FromArgb(76, 88, 100);
+            Lbl_Operations.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
+            Lbl_Operations.LineColor = Color.FromArgb(200, 200, 200);
+            Lbl_Operations.Location = new Point(12, 435);
+            Lbl_Operations.Margin = new Padding(4, 3, 4, 3);
+            Lbl_Operations.Name = "Lbl_Operations";
+            Lbl_Operations.Size = new Size(524, 42);
+            Lbl_Operations.TabIndex = 3;
+            Lbl_Operations.Text = "İşlemler";
             // 
-            // foxTextBox2
+            // Txt_Name
             // 
-            foxTextBox2.BackColor = Color.Transparent;
-            foxTextBox2.EnabledCalc = true;
-            foxTextBox2.Font = new Font("Segoe UI", 10F);
-            foxTextBox2.ForeColor = Color.FromArgb(66, 78, 90);
-            foxTextBox2.Location = new Point(144, 62);
-            foxTextBox2.MaxLength = 32767;
-            foxTextBox2.MultiLine = false;
-            foxTextBox2.Name = "foxTextBox2";
-            foxTextBox2.ReadOnly = false;
-            foxTextBox2.Size = new Size(179, 32);
-            foxTextBox2.TabIndex = 5;
-            foxTextBox2.Text = "foxTextBox2";
-            foxTextBox2.TextAlign = HorizontalAlignment.Left;
-            foxTextBox2.UseSystemPasswordChar = false;
+            Txt_Name.BackColor = Color.Transparent;
+            Txt_Name.EnabledCalc = true;
+            Txt_Name.Font = new Font("Segoe UI", 10F);
+            Txt_Name.ForeColor = Color.FromArgb(66, 78, 90);
+            Txt_Name.Location = new Point(144, 62);
+            Txt_Name.Margin = new Padding(4, 3, 4, 3);
+            Txt_Name.MaxLength = 32767;
+            Txt_Name.MultiLine = false;
+            Txt_Name.Name = "Txt_Name";
+            Txt_Name.ReadOnly = false;
+            Txt_Name.Size = new Size(178, 32);
+            Txt_Name.TabIndex = 5;
+            Txt_Name.TextAlign = HorizontalAlignment.Left;
+            Txt_Name.UseSystemPasswordChar = false;
             // 
-            // foxTextBox3
+            // Txt_Adress
             // 
-            foxTextBox3.BackColor = Color.Transparent;
-            foxTextBox3.EnabledCalc = true;
-            foxTextBox3.Font = new Font("Segoe UI", 10F);
-            foxTextBox3.ForeColor = Color.FromArgb(66, 78, 90);
-            foxTextBox3.Location = new Point(144, 100);
-            foxTextBox3.MaxLength = 32767;
-            foxTextBox3.MultiLine = false;
-            foxTextBox3.Name = "foxTextBox3";
-            foxTextBox3.ReadOnly = false;
-            foxTextBox3.Size = new Size(179, 32);
-            foxTextBox3.TabIndex = 5;
-            foxTextBox3.Text = "foxTextBox2";
-            foxTextBox3.TextAlign = HorizontalAlignment.Left;
-            foxTextBox3.UseSystemPasswordChar = false;
+            Txt_Adress.BackColor = Color.Transparent;
+            Txt_Adress.EnabledCalc = true;
+            Txt_Adress.Font = new Font("Segoe UI", 10F);
+            Txt_Adress.ForeColor = Color.FromArgb(66, 78, 90);
+            Txt_Adress.Location = new Point(144, 100);
+            Txt_Adress.Margin = new Padding(4, 3, 4, 3);
+            Txt_Adress.MaxLength = 32767;
+            Txt_Adress.MultiLine = false;
+            Txt_Adress.Name = "Txt_Adress";
+            Txt_Adress.ReadOnly = false;
+            Txt_Adress.Size = new Size(178, 32);
+            Txt_Adress.TabIndex = 5;
+            Txt_Adress.TextAlign = HorizontalAlignment.Left;
+            Txt_Adress.UseSystemPasswordChar = false;
             // 
-            // foxTextBox4
+            // Txt_Phone
             // 
-            foxTextBox4.BackColor = Color.Transparent;
-            foxTextBox4.EnabledCalc = true;
-            foxTextBox4.Font = new Font("Segoe UI", 10F);
-            foxTextBox4.ForeColor = Color.FromArgb(66, 78, 90);
-            foxTextBox4.Location = new Point(144, 138);
-            foxTextBox4.MaxLength = 32767;
-            foxTextBox4.MultiLine = false;
-            foxTextBox4.Name = "foxTextBox4";
-            foxTextBox4.ReadOnly = false;
-            foxTextBox4.Size = new Size(179, 32);
-            foxTextBox4.TabIndex = 5;
-            foxTextBox4.Text = "foxTextBox2";
-            foxTextBox4.TextAlign = HorizontalAlignment.Left;
-            foxTextBox4.UseSystemPasswordChar = false;
+            Txt_Phone.BackColor = Color.Transparent;
+            Txt_Phone.EnabledCalc = true;
+            Txt_Phone.Font = new Font("Segoe UI", 10F);
+            Txt_Phone.ForeColor = Color.FromArgb(66, 78, 90);
+            Txt_Phone.Location = new Point(144, 138);
+            Txt_Phone.Margin = new Padding(4, 3, 4, 3);
+            Txt_Phone.MaxLength = 32767;
+            Txt_Phone.MultiLine = false;
+            Txt_Phone.Name = "Txt_Phone";
+            Txt_Phone.ReadOnly = false;
+            Txt_Phone.Size = new Size(178, 32);
+            Txt_Phone.TabIndex = 5;
+            Txt_Phone.TextAlign = HorizontalAlignment.Left;
+            Txt_Phone.UseSystemPasswordChar = false;
             // 
             // panel1
             // 
-            panel1.Controls.Add(foxButton1);
-            panel1.Controls.Add(foxTextBox1);
+            panel1.Controls.Add(Btn_Search);
+            panel1.Controls.Add(Txt_Search);
             panel1.Controls.Add(Dgw_OwnerList);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(320, 586);
+            panel1.Size = new Size(320, 589);
             panel1.TabIndex = 9;
             // 
             // panel2
             // 
             panel2.Controls.Add(Dgw_ToDoList);
-            panel2.Controls.Add(foxBigLabel4);
+            panel2.Controls.Add(Lbl_ToDo);
             panel2.Dock = DockStyle.Right;
             panel2.Location = new Point(862, 0);
+            panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(320, 586);
+            panel2.Size = new Size(320, 589);
             panel2.TabIndex = 10;
             // 
             // Dgw_ToDoList
             // 
             Dgw_ToDoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Dgw_ToDoList.Location = new Point(15, 67);
+            Dgw_ToDoList.Location = new Point(16, 67);
+            Dgw_ToDoList.Margin = new Padding(4, 3, 4, 3);
             Dgw_ToDoList.Name = "Dgw_ToDoList";
             Dgw_ToDoList.Size = new Size(299, 507);
             Dgw_ToDoList.TabIndex = 0;
             // 
-            // foxBigLabel4
+            // Lbl_ToDo
             // 
-            foxBigLabel4.BackColor = Color.Transparent;
-            foxBigLabel4.Font = new Font("Segoe UI Semibold", 20F);
-            foxBigLabel4.ForeColor = Color.FromArgb(76, 88, 100);
-            foxBigLabel4.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
-            foxBigLabel4.LineColor = Color.FromArgb(200, 200, 200);
-            foxBigLabel4.Location = new Point(15, 12);
-            foxBigLabel4.Name = "foxBigLabel4";
-            foxBigLabel4.Size = new Size(293, 41);
-            foxBigLabel4.TabIndex = 3;
-            foxBigLabel4.Text = "Yapılacaklar";
+            Lbl_ToDo.BackColor = Color.Transparent;
+            Lbl_ToDo.Font = new Font("Segoe UI Semibold", 20F);
+            Lbl_ToDo.ForeColor = Color.FromArgb(76, 88, 100);
+            Lbl_ToDo.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
+            Lbl_ToDo.LineColor = Color.FromArgb(200, 200, 200);
+            Lbl_ToDo.Location = new Point(16, 12);
+            Lbl_ToDo.Margin = new Padding(4, 3, 4, 3);
+            Lbl_ToDo.Name = "Lbl_ToDo";
+            Lbl_ToDo.Size = new Size(292, 42);
+            Lbl_ToDo.TabIndex = 3;
+            Lbl_ToDo.Text = "Yapılacaklar";
             // 
             // panel3
             // 
-            panel3.Controls.Add(foxBigLabel1);
-            panel3.Controls.Add(label3);
-            panel3.Controls.Add(foxTextBox2);
-            panel3.Controls.Add(foxButton11);
-            panel3.Controls.Add(foxTextBox3);
-            panel3.Controls.Add(foxButton7);
-            panel3.Controls.Add(foxTextBox4);
-            panel3.Controls.Add(foxButton10);
-            panel3.Controls.Add(label1);
-            panel3.Controls.Add(foxButton6);
-            panel3.Controls.Add(label2);
-            panel3.Controls.Add(foxButton8);
-            panel3.Controls.Add(foxButton5);
-            panel3.Controls.Add(foxBigLabel2);
-            panel3.Controls.Add(foxButton4);
+            panel3.Controls.Add(Lbl_ClientInfo);
+            panel3.Controls.Add(Lbl_Phone);
+            panel3.Controls.Add(Txt_Name);
+            panel3.Controls.Add(Btn_EditClient);
+            panel3.Controls.Add(Txt_Adress);
+            panel3.Controls.Add(Btn_AddClient);
+            panel3.Controls.Add(Txt_Phone);
+            panel3.Controls.Add(Btn_EditPatient);
+            panel3.Controls.Add(Lbl_Name);
+            panel3.Controls.Add(Btn_AddPatient);
+            panel3.Controls.Add(Lbl_Adress);
+            panel3.Controls.Add(Btn_SaleInfo);
+            panel3.Controls.Add(Btn_Desease);
+            panel3.Controls.Add(Lbl_ClientPatients);
+            panel3.Controls.Add(Btn_Sales);
             panel3.Controls.Add(Dgw_PatientList);
-            panel3.Controls.Add(foxBigLabel3);
-            panel3.Controls.Add(foxButton2);
-            panel3.Controls.Add(foxButton3);
+            panel3.Controls.Add(Lbl_Operations);
+            panel3.Controls.Add(Btn_PatientInfo);
+            panel3.Controls.Add(Btn_VacCalender);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(320, 0);
+            panel3.Margin = new Padding(4, 3, 4, 3);
             panel3.Name = "panel3";
             panel3.RightToLeft = RightToLeft.No;
-            panel3.Size = new Size(542, 586);
+            panel3.Size = new Size(542, 589);
             panel3.TabIndex = 11;
             // 
             // Operations
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(1182, 586);
+            ClientSize = new Size(1182, 589);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 3, 4, 3);
             Name = "Operations";
             Text = "PatientCare v0.01";
             ((System.ComponentModel.ISupportInitialize)Dgw_OwnerList).EndInit();
@@ -592,16 +619,16 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
-        private ReaLTaiizor.Controls.FoxButton foxButton1;
+        private ReaLTaiizor.Controls.FoxTextBox Txt_Search;
+        private ReaLTaiizor.Controls.FoxButton Btn_Search;
         private DataGridView Dgw_OwnerList;
         private DataGridViewTextBoxColumn ownerNameDataGridViewTextBoxColumn;
         private BindingSource patientOwnerBindingSource;
         private BindingSource patientOwnerBindingSource1;
-        private ReaLTaiizor.Controls.FoxBigLabel foxBigLabel1;
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private ReaLTaiizor.Controls.FoxBigLabel Lbl_ClientInfo;
+        private Label Lbl_Name;
+        private Label Lbl_Adress;
+        private Label Lbl_Phone;
         private BindingSource patientBindingSource;
         private BindingSource patientBindingSource1;
         private BindingSource patientBindingSource2;
@@ -610,24 +637,26 @@
         private DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn patientGenderDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn BirthDate;
-        private ReaLTaiizor.Controls.FoxButton foxButton2;
-        private ReaLTaiizor.Controls.FoxButton foxButton3;
-        private ReaLTaiizor.Controls.FoxButton foxButton4;
-        private ReaLTaiizor.Controls.FoxButton foxButton5;
-        private ReaLTaiizor.Controls.FoxButton foxButton6;
-        private ReaLTaiizor.Controls.FoxButton foxButton7;
-        private ReaLTaiizor.Controls.FoxButton foxButton8;
-        private ReaLTaiizor.Controls.FoxButton foxButton10;
-        private ReaLTaiizor.Controls.FoxButton foxButton11;
-        private ReaLTaiizor.Controls.FoxBigLabel foxBigLabel2;
-        private ReaLTaiizor.Controls.FoxBigLabel foxBigLabel3;
-        private ReaLTaiizor.Controls.FoxTextBox foxTextBox2;
-        private ReaLTaiizor.Controls.FoxTextBox foxTextBox3;
-        private ReaLTaiizor.Controls.FoxTextBox foxTextBox4;
+        private ReaLTaiizor.Controls.FoxButton Btn_PatientInfo;
+        private ReaLTaiizor.Controls.FoxButton Btn_VacCalender;
+        private ReaLTaiizor.Controls.FoxButton Btn_Sales;
+        private ReaLTaiizor.Controls.FoxButton Btn_Desease;
+        private ReaLTaiizor.Controls.FoxButton Btn_AddPatient;
+        private ReaLTaiizor.Controls.FoxButton Btn_AddClient;
+        private ReaLTaiizor.Controls.FoxButton Btn_SaleInfo;
+        private ReaLTaiizor.Controls.FoxButton Btn_EditPatient;
+        private ReaLTaiizor.Controls.FoxButton Btn_EditClient;
+        private ReaLTaiizor.Controls.FoxBigLabel Lbl_ClientPatients;
+        private ReaLTaiizor.Controls.FoxBigLabel Lbl_Operations;
+        private ReaLTaiizor.Controls.FoxTextBox Txt_Name;
+        private ReaLTaiizor.Controls.FoxTextBox Txt_Adress;
+        private ReaLTaiizor.Controls.FoxTextBox Txt_Phone;
         private Panel panel1;
         private Panel panel2;
         private DataGridView Dgw_ToDoList;
-        private ReaLTaiizor.Controls.FoxBigLabel foxBigLabel4;
+        private ReaLTaiizor.Controls.FoxBigLabel Lbl_ToDo;
         private Panel panel3;
+
+
     }
 }

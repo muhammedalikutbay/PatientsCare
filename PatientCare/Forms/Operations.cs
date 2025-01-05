@@ -1,8 +1,9 @@
 ﻿using System.Data;
 using System.Data.SQLite;
+using System.Linq;
 using Microsoft.Extensions.Configuration;
-using PatientCare.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using PatientCare.Interfaces;
 using PatientCare.Models;
 
 namespace PatientCare.Forms
@@ -16,7 +17,13 @@ namespace PatientCare.Forms
         private readonly IDatabaseRepository<PatientOwner> ownerRepository;
         private readonly IDatabaseRepository<Patient> patientRepository;
 
-        public Operations(IDatabaseService databaseService, IConfiguration configuration, IServiceProvider serviceProvider, IDatabaseRepository<PatientOwner> ownerRepository, IDatabaseRepository<Patient> patientRepository)
+        public Operations(
+            IDatabaseService databaseService,
+            IConfiguration configuration,
+            IServiceProvider serviceProvider,
+            IDatabaseRepository<PatientOwner> ownerRepository,
+            IDatabaseRepository<Patient> patientRepository
+        )
         {
             databaseService.CreateDatabase();
 
@@ -29,7 +36,6 @@ namespace PatientCare.Forms
 
             InitializeComponent();
             LoadData();
-
         }
 
         public void LoadData()
@@ -38,11 +44,57 @@ namespace PatientCare.Forms
             Dgw_OwnerList.DataSource = ownerRepository.GetAll();
         }
 
-        private void foxButton7_Click(object sender, EventArgs e)
+        private void Btn_AddClient_Click(object sender, EventArgs e)
         {
             var ownerAdd = serviceProvider.GetRequiredService<OwnerAdd>();
             ownerAdd.TopMost = true;
             ownerAdd.Show();
+        }
+
+        private void Txt_Search_TextChanged(object sender, EventArgs e)
+        {
+            string filter = Txt_Search.Text.ToLower();
+
+            if (Dgw_OwnerList.DataSource is DataTable dt && dt.Rows.Count > 0)
+            {
+                var filteredRows = dt.AsEnumerable()
+                    .Where(row =>
+                        !row.IsNull("OwnerName")
+                        && row.Field<string>("OwnerName").ToLower().Contains(filter)
+                    );
+
+                if (filteredRows.Any())
+                {
+                    var filteredOwners = filteredRows.CopyToDataTable();
+                    Dgw_OwnerList.DataSource = filteredOwners;
+                }
+                else
+                {
+                    Dgw_OwnerList.DataSource = dt.Clone();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No data available to filter.");
+            }
+        }
+
+        private void Txt_Search_Enter(object sender, EventArgs e)
+        {
+            if (Txt_Search.Text == "Hasta Sahibi Arama")
+            {
+                Txt_Search.Text = "";
+                Txt_Search.ForeColor = Color.Black;
+            }
+        }
+
+        private void Txt_Search_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Txt_Search.Text))
+            {
+                Txt_Search.Text = "Hasta Sahibi Arama";
+                Txt_Search.ForeColor = Color.Gray;
+            }
         }
     }
 }
