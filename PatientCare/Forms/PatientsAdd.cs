@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
 using Microsoft.Extensions.Configuration;
+using PatientCare.Interfaces;
 using PatientCare.Models;
 
 namespace PatientCare.Forms
@@ -13,7 +14,7 @@ namespace PatientCare.Forms
         public string _connectionString;
         int ownerid;
 
-        public PatientsAdd(IConfiguration configuration)
+        public PatientsAdd(IConfiguration configuration,IDatabaseRepository<Patient> databaseRepository )
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection");
             InitializeComponent();
@@ -24,15 +25,15 @@ namespace PatientCare.Forms
         {
             using SQLiteConnection conn = new(_connectionString);
             conn.Open();
-            string query = "SELECT Id, OwnerName FROM PatientsOwner"; // OwnerName ve Id sorgusu
+            string query = "SELECT Id, OwnerName FROM PatientsOwner";
             SQLiteCommand cmd = new(query, conn);
             SQLiteDataAdapter da = new(cmd);
             DataTable dt = new();
             da.Fill(dt);
 
-            comboBox1.DisplayMember = "OwnerName"; // ComboBox'ta gösterilecek sütun
-            comboBox1.ValueMember = "Id"; // Seçildiğinde geri dönecek olan değer (Id)
-            comboBox1.DataSource = dt; // ComboBox'a veri bağlama
+            comboBox1.DisplayMember = "OwnerName";
+            comboBox1.ValueMember = "Id";
+            comboBox1.DataSource = dt;
         }
 
         public void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,14 +42,6 @@ namespace PatientCare.Forms
             {
                 ownerid = Convert.ToInt32(comboBox1.SelectedValue);
             }
-        }
-
-        private void Btn_OwnerAdd_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-            //OwnerAdd ownerAdd = new(configuration);
-            //ownerAdd.TopMost = true;
-            //ownerAdd.Show();
         }
 
         private void Btn_Add_Click(object sender, EventArgs e)
@@ -69,9 +62,7 @@ namespace PatientCare.Forms
                 $"INSERT INTO Patients (PatientName,OwnerId,RegistrationDate,PatientGender,PatientNote) VALUES ('{patient.PatientName}',{patient.OwnerId},'{patient.RegistrationDate}','{patient.PatientGender}','{patient.PatientNote}')";
             using SQLiteCommand cmd = new(query, conn);
             cmd.ExecuteNonQuery();
-            Clients clients = new(configuration);
             MessageBox.Show("Veri başarıyla eklendi!");
-            clients.LoadData();
             this.Close();
         }
     }

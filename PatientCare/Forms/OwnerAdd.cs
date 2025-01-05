@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.SQLite;
 using System.Windows.Forms;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PatientCare.Interfaces;
 using PatientCare.Models;
@@ -10,18 +9,16 @@ namespace PatientCare.Forms
 {
     public partial class OwnerAdd : Form
     {
-        private readonly IConfiguration configuration;
         public string _connectionString;
         private readonly IServiceProvider _serviceProvider;
         private readonly IDatabaseRepository<PatientOwner> ownerRepository;
 
         public OwnerAdd(
-            IConfiguration configuration,
             IServiceProvider serviceProvider,
             IDatabaseRepository<PatientOwner> ownerRepository
         )
         {
-            this.configuration = configuration;
+            this.Load += new System.EventHandler(this.OwnerAdd_Load);
             _serviceProvider = serviceProvider;
             this.ownerRepository = ownerRepository;
             InitializeComponent();
@@ -41,6 +38,14 @@ namespace PatientCare.Forms
             MessageBox.Show("Veri başarıyla eklendi!");
             operations.LoadData();
             this.Close();
+        }
+
+        private void OwnerAdd_Load(object sender, EventArgs e)
+        {
+            Txt_Name.Clear();
+            Txt_Adress.Clear();
+            Txt_Phone.Clear();
+            this.ActiveControl = Txt_Name;
         }
     }
 }

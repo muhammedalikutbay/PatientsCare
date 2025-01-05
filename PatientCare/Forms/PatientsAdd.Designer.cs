@@ -134,7 +134,6 @@
             this.Btn_OwnerAdd.Size = new System.Drawing.Size(181, 29);
             this.Btn_OwnerAdd.TabIndex = 19;
             this.Btn_OwnerAdd.Text = "Yeni Hasta Sahibi Ekle";
-            this.Btn_OwnerAdd.Click += new System.EventHandler(this.Btn_OwnerAdd_Click_1);
         
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

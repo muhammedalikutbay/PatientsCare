@@ -145,6 +145,7 @@
             Name = "OwnerAdd";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "OwnerAdd";
+            Load += OwnerAdd_Load;
             ResumeLayout(false);
             PerformLayout();
         }

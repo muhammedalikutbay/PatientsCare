@@ -2,11 +2,11 @@
 {
     public class Patient : BaseModel
     {
-        public int OwnerId { get; set; } // Foreign Key, nullable
-        public string? PatientName { get; set; }  // TEXT
-        public string? PatientGender { get; set; } // TEXT
-        public string? RegistrationDate { get; set; } // DATETIME
-        public string? BirthDate { get; set; } // DATETIME
-        public string? PatientNote { get; set; } // TEXT
+        public int OwnerId { get; set; }
+        public string? PatientName { get; set; }
+        public string? PatientGender { get; set; }
+        public string? RegistrationDate { get; set; }
+        public string? BirthDate { get; set; }
+        public string? PatientNote { get; set; }
     }
 }

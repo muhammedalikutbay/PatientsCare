@@ -30,7 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Operations));
-            Txt_Search = new ReaLTaiizor.Controls.FoxTextBox();
             Btn_Search = new ReaLTaiizor.Controls.FoxButton();
             Dgw_OwnerList = new DataGridView();
             ownerNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -63,6 +62,7 @@
             Txt_Adress = new ReaLTaiizor.Controls.FoxTextBox();
             Txt_Phone = new ReaLTaiizor.Controls.FoxTextBox();
             panel1 = new Panel();
+            Txt_Search = new TextBox();
             panel2 = new Panel();
             Dgw_ToDoList = new DataGridView();
             Lbl_ToDo = new ReaLTaiizor.Controls.FoxBigLabel();
@@ -80,27 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)Dgw_ToDoList).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
-            // 
-            // Txt_Search
-            // 
-            Txt_Search.BackColor = Color.Transparent;
-            Txt_Search.EnabledCalc = true;
-            Txt_Search.Font = new Font("Segoe UI", 10F);
-            Txt_Search.ForeColor = Color.Gray;
-            Txt_Search.Location = new Point(12, 15);
-            Txt_Search.Margin = new Padding(4, 3, 4, 3);
-            Txt_Search.MaxLength = 32767;
-            Txt_Search.MultiLine = false;
-            Txt_Search.Name = "Txt_Search";
-            Txt_Search.ReadOnly = false;
-            Txt_Search.Size = new Size(264, 32);
-            Txt_Search.TabIndex = 0;
-            Txt_Search.Text = "Hasta Sahibi Arama";
-            Txt_Search.TextAlign = HorizontalAlignment.Left;
-            Txt_Search.UseSystemPasswordChar = false;
-            Txt_Search.TextChanged += Txt_Search_TextChanged;
-            Txt_Search.Enter += Txt_Search_Enter;
-            Txt_Search.Leave += Txt_Search_Leave;
             // 
             // Btn_Search
             // 
@@ -122,6 +101,7 @@
             Btn_Search.OverColor = Color.Transparent;
             Btn_Search.Size = new Size(31, 32);
             Btn_Search.TabIndex = 1;
+            Btn_Search.Click += Btn_Search_Click;
             // 
             // Dgw_OwnerList
             // 
@@ -351,6 +331,7 @@
             Btn_AddPatient.Size = new Size(120, 40);
             Btn_AddPatient.TabIndex = 8;
             Btn_AddPatient.Text = "Hayvan Ekle";
+            Btn_AddPatient.Click += Btn_AddPatient_Click;
             // 
             // Btn_AddClient
             // 
@@ -515,8 +496,8 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(Btn_Search);
             panel1.Controls.Add(Txt_Search);
+            panel1.Controls.Add(Btn_Search);
             panel1.Controls.Add(Dgw_OwnerList);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
@@ -524,6 +505,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(320, 589);
             panel1.TabIndex = 9;
+            // 
+            // Txt_Search
+            // 
+            Txt_Search.BackColor = SystemColors.Control;
+            Txt_Search.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Txt_Search.Location = new Point(12, 18);
+            Txt_Search.Name = "Txt_Search";
+            Txt_Search.PlaceholderText = "Hasta Sahibi Arama";
+            Txt_Search.Size = new Size(263, 29);
+            Txt_Search.TabIndex = 3;
+            Txt_Search.Enter += Txt_Search_Enter_1;
+            Txt_Search.Leave += Txt_Search_Leave_1;
             // 
             // panel2
             // 
@@ -610,6 +603,7 @@
             ((System.ComponentModel.ISupportInitialize)patientBindingSource3).EndInit();
             ((System.ComponentModel.ISupportInitialize)Dgw_PatientList).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Dgw_ToDoList).EndInit();
             panel3.ResumeLayout(false);
@@ -618,8 +612,6 @@
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.FoxTextBox Txt_Search;
         private ReaLTaiizor.Controls.FoxButton Btn_Search;
         private DataGridView Dgw_OwnerList;
         private DataGridViewTextBoxColumn ownerNameDataGridViewTextBoxColumn;
@@ -656,7 +648,6 @@
         private DataGridView Dgw_ToDoList;
         private ReaLTaiizor.Controls.FoxBigLabel Lbl_ToDo;
         private Panel panel3;
-
-
+        private TextBox Txt_Search;
     }
 }
