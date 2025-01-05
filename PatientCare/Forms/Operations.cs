@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
@@ -121,6 +122,7 @@ namespace PatientCare.Forms
                 >();
                 var patientAdd = new PatientsAdd(
                     configuration,
+                    serviceProvider,
                     patientRepository,
                     ownerRepository,
                     selectedOwnerId

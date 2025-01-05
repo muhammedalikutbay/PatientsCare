@@ -20,6 +20,7 @@ namespace PatientCare.Forms
 
         public PatientsAdd(
             IConfiguration configuration,
+            IServiceProvider serviceProvider,
             IDatabaseRepository<Patient> patientRepository,
             IDatabaseRepository<PatientOwner> ownerRepository,
             string selectedOwnerId
@@ -27,6 +28,7 @@ namespace PatientCare.Forms
         {
             this.Load += new System.EventHandler(this.PatientAdd_Load);
             _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _serviceProvider = serviceProvider;
             InitializeComponent();
             _selectedOwnerId = selectedOwnerId;
             this.patientRepository = patientRepository;
@@ -71,6 +73,8 @@ namespace PatientCare.Forms
             };
             patientRepository.Insert(patient);
             MessageBox.Show("Veri başarıyla eklendi!");
+            var operationsForm = _serviceProvider.GetRequiredService<Operations>();
+            operationsForm.LoadData();
             this.Close();
         }
     }
