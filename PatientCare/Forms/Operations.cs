@@ -189,5 +189,55 @@ namespace PatientCare.Forms
                 MessageBox.Show("Müşteri bilgileri bulunamadı.");
             }
         }
+
+        private void ClearClientInfos()
+        {
+            Txt_Name.Clear();
+            Txt_Adress.Clear();
+            Txt_Phone.Clear();
+        }
+
+        private void Btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(selectedOwnerId))
+            {
+                DialogResult dialogResult = MessageBox.Show(
+                    "Seçili hasta sahibini silmek istediğinizden emin misiniz?",
+                    "Kaydı Sil",
+                    MessageBoxButtons.YesNo
+                );
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string query = "DELETE FROM PatientOwner WHERE Id = @Id";
+
+                    using (var conn = new SQLiteConnection(_connectionString))
+                    {
+                        using (var cmd = new SQLiteCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", selectedOwnerId);
+
+                            conn.Open();
+                            int result = cmd.ExecuteNonQuery();
+
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Hasta sahibi başarıyla silindi.");
+                                LoadData();
+                                ClearClientInfos();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Hasta sahibi silinemedi.");
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir hasta sahibi seçin.");
+            }
+        }
     }
 }
