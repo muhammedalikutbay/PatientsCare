@@ -66,6 +66,7 @@ namespace PatientCare.Forms
             {
                 OwnerId = Convert.ToInt32(_selectedOwnerId),
                 PatientName = Txt_Name.Text,
+                PatientType = Cmb_Type.Text,
                 PatientGender = Cmb_Gender.Text,
                 RegistrationDate = DateTime.Now.ToString("dd-MM-yyyy"),
                 BirthDate = Dtp_BirthDate.Text,

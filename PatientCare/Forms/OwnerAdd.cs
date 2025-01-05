@@ -30,7 +30,7 @@ namespace PatientCare.Forms
             {
                 OwnerName = Txt_Name.Text,
                 OwnerAdress = Txt_Adress.Text,
-                OwnerPhone = Txt_PhoneNo.Text,
+                OwnerPhone = Txt_Phone.Text,
             };
             ownerRepository.Insert(patientOwner);
 
@@ -44,8 +44,10 @@ namespace PatientCare.Forms
         {
             Txt_Name.Clear();
             Txt_Adress.Clear();
-            Txt_PhoneNo.Clear();
+            Txt_Phone.Clear();
             this.ActiveControl = Txt_Name;
         }
+
+
     }
 }

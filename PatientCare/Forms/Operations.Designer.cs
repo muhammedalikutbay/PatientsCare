@@ -40,6 +40,10 @@
             patientBindingSource2 = new BindingSource(components);
             patientBindingSource3 = new BindingSource(components);
             Dgw_PatientList = new DataGridView();
+            patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            BirthDate = new DataGridViewTextBoxColumn();
+            PatientNote = new DataGridViewTextBoxColumn();
             Btn_PatientInfo = new ReaLTaiizor.Controls.FoxButton();
             Btn_VacCalender = new ReaLTaiizor.Controls.FoxButton();
             Btn_Sales = new ReaLTaiizor.Controls.FoxButton();
@@ -64,10 +68,6 @@
             Dgw_ToDoList = new DataGridView();
             Lbl_ToDo = new ReaLTaiizor.Controls.FoxBigLabel();
             panel3 = new Panel();
-            patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            BirthDate = new DataGridViewTextBoxColumn();
-            PatientNote = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource2).BeginInit();
@@ -180,6 +180,37 @@
             Dgw_PatientList.Name = "Dgw_PatientList";
             Dgw_PatientList.Size = new Size(524, 150);
             Dgw_PatientList.TabIndex = 7;
+            // 
+            // patientNameDataGridViewTextBoxColumn
+            // 
+            patientNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
+            patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
+            patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
+            patientNameDataGridViewTextBoxColumn.Width = 101;
+            // 
+            // patientGenderDataGridViewTextBoxColumn
+            // 
+            patientGenderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            patientGenderDataGridViewTextBoxColumn.DataPropertyName = "PatientGender";
+            patientGenderDataGridViewTextBoxColumn.HeaderText = "PatientGender";
+            patientGenderDataGridViewTextBoxColumn.Name = "patientGenderDataGridViewTextBoxColumn";
+            patientGenderDataGridViewTextBoxColumn.Width = 107;
+            // 
+            // BirthDate
+            // 
+            BirthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            BirthDate.DataPropertyName = "BirthDate";
+            BirthDate.HeaderText = "BirthDate";
+            BirthDate.Name = "BirthDate";
+            BirthDate.Width = 81;
+            // 
+            // PatientNote
+            // 
+            PatientNote.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PatientNote.DataPropertyName = "PatientNote";
+            PatientNote.HeaderText = "PatientNote";
+            PatientNote.Name = "PatientNote";
             // 
             // Btn_PatientInfo
             // 
@@ -398,6 +429,7 @@
             // Txt_Name
             // 
             Txt_Name.BackColor = Color.Transparent;
+            Txt_Name.Enabled = false;
             Txt_Name.EnabledCalc = true;
             Txt_Name.Font = new Font("Segoe UI", 10F);
             Txt_Name.ForeColor = Color.FromArgb(66, 78, 90);
@@ -415,6 +447,7 @@
             // Txt_Adress
             // 
             Txt_Adress.BackColor = Color.Transparent;
+            Txt_Adress.Enabled = false;
             Txt_Adress.EnabledCalc = true;
             Txt_Adress.Font = new Font("Segoe UI", 10F);
             Txt_Adress.ForeColor = Color.FromArgb(66, 78, 90);
@@ -432,6 +465,7 @@
             // Txt_Phone
             // 
             Txt_Phone.BackColor = Color.Transparent;
+            Txt_Phone.Enabled = false;
             Txt_Phone.EnabledCalc = true;
             Txt_Phone.Font = new Font("Segoe UI", 10F);
             Txt_Phone.ForeColor = Color.FromArgb(66, 78, 90);
@@ -564,37 +598,6 @@
             panel3.RightToLeft = RightToLeft.No;
             panel3.Size = new Size(542, 589);
             panel3.TabIndex = 11;
-            // 
-            // patientNameDataGridViewTextBoxColumn
-            // 
-            patientNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
-            patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
-            patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
-            patientNameDataGridViewTextBoxColumn.Width = 101;
-            // 
-            // patientGenderDataGridViewTextBoxColumn
-            // 
-            patientGenderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            patientGenderDataGridViewTextBoxColumn.DataPropertyName = "PatientGender";
-            patientGenderDataGridViewTextBoxColumn.HeaderText = "PatientGender";
-            patientGenderDataGridViewTextBoxColumn.Name = "patientGenderDataGridViewTextBoxColumn";
-            patientGenderDataGridViewTextBoxColumn.Width = 107;
-            // 
-            // BirthDate
-            // 
-            BirthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            BirthDate.DataPropertyName = "BirthDate";
-            BirthDate.HeaderText = "BirthDate";
-            BirthDate.Name = "BirthDate";
-            BirthDate.Width = 81;
-            // 
-            // PatientNote
-            // 
-            PatientNote.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            PatientNote.DataPropertyName = "PatientNote";
-            PatientNote.HeaderText = "PatientNote";
-            PatientNote.Name = "PatientNote";
             // 
             // Operations
             // 

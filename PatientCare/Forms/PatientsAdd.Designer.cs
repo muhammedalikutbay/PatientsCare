@@ -30,6 +30,8 @@
             Lbl_BirthDate = new ReaLTaiizor.Controls.FoxLabel();
             Dtp_BirthDate = new ReaLTaiizor.Controls.PoisonDateTime();
             Cmb_Gender = new ComboBox();
+            Lbl_Type = new ReaLTaiizor.Controls.FoxLabel();
+            Cmb_Type = new ComboBox();
             SuspendLayout();
             // 
             // foxLabel1
@@ -61,7 +63,7 @@
             foxLabel3.BackColor = Color.Transparent;
             foxLabel3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             foxLabel3.ForeColor = Color.FromArgb(76, 88, 100);
-            foxLabel3.Location = new Point(35, 205);
+            foxLabel3.Location = new Point(35, 236);
             foxLabel3.Margin = new Padding(4, 3, 4, 3);
             foxLabel3.Name = "foxLabel3";
             foxLabel3.Size = new Size(138, 33);
@@ -73,7 +75,7 @@
             foxLabel5.BackColor = Color.Transparent;
             foxLabel5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             foxLabel5.ForeColor = Color.FromArgb(76, 88, 100);
-            foxLabel5.Location = new Point(35, 242);
+            foxLabel5.Location = new Point(35, 273);
             foxLabel5.Margin = new Padding(4, 3, 4, 3);
             foxLabel5.Name = "foxLabel5";
             foxLabel5.Size = new Size(138, 33);
@@ -108,7 +110,7 @@
             // 
             Txt_Note.BackColor = SystemColors.ControlLightLight;
             Txt_Note.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            Txt_Note.Location = new Point(194, 242);
+            Txt_Note.Location = new Point(194, 273);
             Txt_Note.Margin = new Padding(4, 3, 4, 3);
             Txt_Note.Multiline = true;
             Txt_Note.Name = "Txt_Note";
@@ -139,7 +141,7 @@
             Btn_Save.EnabledCalc = true;
             Btn_Save.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             Btn_Save.ForeColor = Color.FromArgb(66, 78, 90);
-            Btn_Save.Location = new Point(363, 291);
+            Btn_Save.Location = new Point(363, 312);
             Btn_Save.Name = "Btn_Save";
             Btn_Save.OverColor = Color.FromArgb(242, 242, 242);
             Btn_Save.RightToLeft = RightToLeft.Yes;
@@ -153,7 +155,7 @@
             Lbl_BirthDate.BackColor = Color.Transparent;
             Lbl_BirthDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             Lbl_BirthDate.ForeColor = Color.FromArgb(76, 88, 100);
-            Lbl_BirthDate.Location = new Point(35, 168);
+            Lbl_BirthDate.Location = new Point(35, 199);
             Lbl_BirthDate.Margin = new Padding(4, 3, 4, 3);
             Lbl_BirthDate.Name = "Lbl_BirthDate";
             Lbl_BirthDate.Size = new Size(138, 33);
@@ -162,7 +164,7 @@
             // 
             // Dtp_BirthDate
             // 
-            Dtp_BirthDate.Location = new Point(194, 168);
+            Dtp_BirthDate.Location = new Point(194, 199);
             Dtp_BirthDate.MinimumSize = new Size(0, 29);
             Dtp_BirthDate.Name = "Dtp_BirthDate";
             Dtp_BirthDate.Size = new Size(294, 29);
@@ -173,16 +175,39 @@
             Cmb_Gender.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             Cmb_Gender.FormattingEnabled = true;
             Cmb_Gender.Items.AddRange(new object[] { "Erkek", "Dişi" });
-            Cmb_Gender.Location = new Point(194, 205);
+            Cmb_Gender.Location = new Point(194, 236);
             Cmb_Gender.Name = "Cmb_Gender";
             Cmb_Gender.Size = new Size(294, 29);
             Cmb_Gender.TabIndex = 19;
+            // 
+            // Lbl_Type
+            // 
+            Lbl_Type.BackColor = Color.Transparent;
+            Lbl_Type.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            Lbl_Type.ForeColor = Color.FromArgb(76, 88, 100);
+            Lbl_Type.Location = new Point(35, 164);
+            Lbl_Type.Margin = new Padding(4, 3, 4, 3);
+            Lbl_Type.Name = "Lbl_Type";
+            Lbl_Type.Size = new Size(138, 33);
+            Lbl_Type.TabIndex = 5;
+            Lbl_Type.Text = "Hasta Türü:";
+            // 
+            // Cmb_Type
+            // 
+            Cmb_Type.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Cmb_Type.FormattingEnabled = true;
+            Cmb_Type.Items.AddRange(new object[] { "Kedi", "Köpek", "Diğer" });
+            Cmb_Type.Location = new Point(194, 164);
+            Cmb_Type.Name = "Cmb_Type";
+            Cmb_Type.Size = new Size(294, 29);
+            Cmb_Type.TabIndex = 19;
             // 
             // PatientsAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(527, 361);
+            Controls.Add(Cmb_Type);
             Controls.Add(Cmb_Gender);
             Controls.Add(Dtp_BirthDate);
             Controls.Add(Btn_Save);
@@ -190,6 +215,7 @@
             Controls.Add(Txt_Name);
             Controls.Add(foxBigLabel1);
             Controls.Add(Lbl_BirthDate);
+            Controls.Add(Lbl_Type);
             Controls.Add(foxLabel5);
             Controls.Add(foxLabel3);
             Controls.Add(Lbl_OwnerName);
@@ -217,5 +243,7 @@
         private ReaLTaiizor.Controls.FoxLabel Lbl_BirthDate;
         private ReaLTaiizor.Controls.PoisonDateTime Dtp_BirthDate;
         private ComboBox Cmb_Gender;
+        private ReaLTaiizor.Controls.FoxLabel Lbl_Type;
+        private ComboBox Cmb_Type;
     }
 }

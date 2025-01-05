@@ -24,6 +24,7 @@ namespace PatientCare.Services
                           ""Id""	INTEGER,
 	                      ""OwnerId""	INTEGER,
 	                      ""PatientName""	TEXT,
+	                      ""PatientType""	TEXT,
 	                      ""PatientGender""	TEXT,
 	                      ""BirthDate""	TEXT,
 	                      ""RegistrationDate""	TEXT,

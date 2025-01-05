@@ -24,7 +24,7 @@
             foxLabel1 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel2 = new ReaLTaiizor.Controls.FoxLabel();
             Btn_Save = new ReaLTaiizor.Controls.FoxButton();
-            Txt_PhoneNo = new MaskedTextBox();
+            Txt_Phone = new TextBox();
             SuspendLayout();
             // 
             // Txt_Adress
@@ -117,22 +117,23 @@
             Btn_Save.Text = "Kaydet";
             Btn_Save.Click += foxButton1_Click;
             // 
-            // Txt_PhoneNo
+            // Txt_Phone
             // 
-            Txt_PhoneNo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            Txt_PhoneNo.Location = new Point(188, 160);
-            Txt_PhoneNo.Mask = "(999) 000-00-00";
-            Txt_PhoneNo.Name = "Txt_PhoneNo";
-            Txt_PhoneNo.Size = new Size(294, 33);
-            Txt_PhoneNo.TabIndex = 28;
+            Txt_Phone.BackColor = SystemColors.ControlLightLight;
+            Txt_Phone.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Txt_Phone.Location = new Point(188, 155);
+            Txt_Phone.Margin = new Padding(4, 3, 4, 3);
+            Txt_Phone.Name = "Txt_Phone";
+            Txt_Phone.Size = new Size(294, 31);
+            Txt_Phone.TabIndex = 25;
             // 
             // OwnerAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(510, 278);
-            Controls.Add(Txt_PhoneNo);
             Controls.Add(Btn_Save);
+            Controls.Add(Txt_Phone);
             Controls.Add(Txt_Adress);
             Controls.Add(Txt_Name);
             Controls.Add(foxBigLabel1);
@@ -158,6 +159,6 @@
         private ReaLTaiizor.Controls.FoxLabel foxLabel1;
         private ReaLTaiizor.Controls.FoxLabel foxLabel2;
         private ReaLTaiizor.Controls.FoxButton Btn_Save;
-        private MaskedTextBox Txt_PhoneNo;
+        private TextBox Txt_Phone;
     }
 }
