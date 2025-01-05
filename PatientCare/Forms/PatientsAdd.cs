@@ -31,16 +31,16 @@ namespace PatientCare.Forms
             DataTable dt = new();
             da.Fill(dt);
 
-            comboBox1.DisplayMember = "OwnerName";
-            comboBox1.ValueMember = "Id";
-            comboBox1.DataSource = dt;
+            Cmb_Gender.DisplayMember = "OwnerName";
+            Cmb_Gender.ValueMember = "Id";
+            Cmb_Gender.DataSource = dt;
         }
 
         public void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedValue != null)
+            if (Cmb_Gender.SelectedValue != null)
             {
-                ownerid = Convert.ToInt32(comboBox1.SelectedValue);
+                ownerid = Convert.ToInt32(Cmb_Gender.SelectedValue);
             }
         }
 
@@ -50,7 +50,7 @@ namespace PatientCare.Forms
             {
                 PatientName = Txt_Name.Text,
                 OwnerId = ownerid,
-                PatientGender = Txt_Gender.Text,
+                //PatientGender = Txt_Gender.Text,
                 RegistrationDate = DateTime.Now.ToString("dd-MM-yyyy"),
                 PatientNote = Txt_Note.Text,
             };

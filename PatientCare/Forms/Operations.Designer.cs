@@ -31,10 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Operations));
             Btn_Search = new ReaLTaiizor.Controls.FoxButton();
-            Dgw_OwnerList = new DataGridView();
-            ownerNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            patientOwnerBindingSource = new BindingSource(components);
-            patientOwnerBindingSource1 = new BindingSource(components);
             Lbl_ClientInfo = new ReaLTaiizor.Controls.FoxBigLabel();
             Lbl_Name = new Label();
             Lbl_Adress = new Label();
@@ -44,9 +40,6 @@
             patientBindingSource2 = new BindingSource(components);
             patientBindingSource3 = new BindingSource(components);
             Dgw_PatientList = new DataGridView();
-            patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            BirthDate = new DataGridViewTextBoxColumn();
             Btn_PatientInfo = new ReaLTaiizor.Controls.FoxButton();
             Btn_VacCalender = new ReaLTaiizor.Controls.FoxButton();
             Btn_Sales = new ReaLTaiizor.Controls.FoxButton();
@@ -62,20 +55,27 @@
             Txt_Adress = new ReaLTaiizor.Controls.FoxTextBox();
             Txt_Phone = new ReaLTaiizor.Controls.FoxTextBox();
             panel1 = new Panel();
+            Dgw_OwnerList = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            ownerNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            patientOwnerBindingSource = new BindingSource(components);
             Txt_Search = new TextBox();
             panel2 = new Panel();
             Dgw_ToDoList = new DataGridView();
             Lbl_ToDo = new ReaLTaiizor.Controls.FoxBigLabel();
             panel3 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)Dgw_OwnerList).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource1).BeginInit();
+            patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            BirthDate = new DataGridViewTextBoxColumn();
+            PatientNote = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Dgw_PatientList).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Dgw_OwnerList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Dgw_ToDoList).BeginInit();
             panel3.SuspendLayout();
@@ -102,34 +102,6 @@
             Btn_Search.Size = new Size(31, 32);
             Btn_Search.TabIndex = 1;
             Btn_Search.Click += Btn_Search_Click;
-            // 
-            // Dgw_OwnerList
-            // 
-            Dgw_OwnerList.AutoGenerateColumns = false;
-            Dgw_OwnerList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Dgw_OwnerList.Columns.AddRange(new DataGridViewColumn[] { ownerNameDataGridViewTextBoxColumn });
-            Dgw_OwnerList.DataSource = patientOwnerBindingSource;
-            Dgw_OwnerList.EditMode = DataGridViewEditMode.EditProgrammatically;
-            Dgw_OwnerList.Location = new Point(12, 60);
-            Dgw_OwnerList.Margin = new Padding(4, 3, 4, 3);
-            Dgw_OwnerList.Name = "Dgw_OwnerList";
-            Dgw_OwnerList.Size = new Size(302, 513);
-            Dgw_OwnerList.TabIndex = 2;
-            // 
-            // ownerNameDataGridViewTextBoxColumn
-            // 
-            ownerNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ownerNameDataGridViewTextBoxColumn.DataPropertyName = "OwnerName";
-            ownerNameDataGridViewTextBoxColumn.HeaderText = "OwnerName";
-            ownerNameDataGridViewTextBoxColumn.Name = "ownerNameDataGridViewTextBoxColumn";
-            // 
-            // patientOwnerBindingSource
-            // 
-            patientOwnerBindingSource.DataSource = typeof(Models.PatientOwner);
-            // 
-            // patientOwnerBindingSource1
-            // 
-            patientOwnerBindingSource1.DataSource = typeof(Models.PatientOwner);
             // 
             // Lbl_ClientInfo
             // 
@@ -201,33 +173,13 @@
             // 
             Dgw_PatientList.AutoGenerateColumns = false;
             Dgw_PatientList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Dgw_PatientList.Columns.AddRange(new DataGridViewColumn[] { patientNameDataGridViewTextBoxColumn, patientGenderDataGridViewTextBoxColumn, BirthDate });
+            Dgw_PatientList.Columns.AddRange(new DataGridViewColumn[] { patientNameDataGridViewTextBoxColumn, patientGenderDataGridViewTextBoxColumn, BirthDate, PatientNote });
             Dgw_PatientList.DataSource = patientBindingSource1;
             Dgw_PatientList.Location = new Point(12, 233);
             Dgw_PatientList.Margin = new Padding(4, 3, 4, 3);
             Dgw_PatientList.Name = "Dgw_PatientList";
             Dgw_PatientList.Size = new Size(524, 150);
             Dgw_PatientList.TabIndex = 7;
-            // 
-            // patientNameDataGridViewTextBoxColumn
-            // 
-            patientNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
-            patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
-            patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
-            // 
-            // patientGenderDataGridViewTextBoxColumn
-            // 
-            patientGenderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            patientGenderDataGridViewTextBoxColumn.DataPropertyName = "PatientGender";
-            patientGenderDataGridViewTextBoxColumn.HeaderText = "PatientGender";
-            patientGenderDataGridViewTextBoxColumn.Name = "patientGenderDataGridViewTextBoxColumn";
-            // 
-            // BirthDate
-            // 
-            BirthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            BirthDate.HeaderText = "BirthDate";
-            BirthDate.Name = "BirthDate";
             // 
             // Btn_PatientInfo
             // 
@@ -496,15 +448,47 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(Dgw_OwnerList);
             panel1.Controls.Add(Txt_Search);
             panel1.Controls.Add(Btn_Search);
-            panel1.Controls.Add(Dgw_OwnerList);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(320, 589);
             panel1.TabIndex = 9;
+            // 
+            // Dgw_OwnerList
+            // 
+            Dgw_OwnerList.AutoGenerateColumns = false;
+            Dgw_OwnerList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            Dgw_OwnerList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dgw_OwnerList.Columns.AddRange(new DataGridViewColumn[] { Id, ownerNameDataGridViewTextBoxColumn });
+            Dgw_OwnerList.DataSource = patientOwnerBindingSource;
+            Dgw_OwnerList.Location = new Point(12, 53);
+            Dgw_OwnerList.Name = "Dgw_OwnerList";
+            Dgw_OwnerList.Size = new Size(301, 509);
+            Dgw_OwnerList.TabIndex = 4;
+            Dgw_OwnerList.CellClick += Dgw_OwnerList_CellClick_1;
+            // 
+            // Id
+            // 
+            Id.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.Width = 42;
+            // 
+            // ownerNameDataGridViewTextBoxColumn
+            // 
+            ownerNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ownerNameDataGridViewTextBoxColumn.DataPropertyName = "OwnerName";
+            ownerNameDataGridViewTextBoxColumn.HeaderText = "OwnerName";
+            ownerNameDataGridViewTextBoxColumn.Name = "ownerNameDataGridViewTextBoxColumn";
+            // 
+            // patientOwnerBindingSource
+            // 
+            patientOwnerBindingSource.DataSource = typeof(Models.PatientOwner);
             // 
             // Txt_Search
             // 
@@ -581,6 +565,37 @@
             panel3.Size = new Size(542, 589);
             panel3.TabIndex = 11;
             // 
+            // patientNameDataGridViewTextBoxColumn
+            // 
+            patientNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
+            patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
+            patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
+            patientNameDataGridViewTextBoxColumn.Width = 101;
+            // 
+            // patientGenderDataGridViewTextBoxColumn
+            // 
+            patientGenderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            patientGenderDataGridViewTextBoxColumn.DataPropertyName = "PatientGender";
+            patientGenderDataGridViewTextBoxColumn.HeaderText = "PatientGender";
+            patientGenderDataGridViewTextBoxColumn.Name = "patientGenderDataGridViewTextBoxColumn";
+            patientGenderDataGridViewTextBoxColumn.Width = 107;
+            // 
+            // BirthDate
+            // 
+            BirthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            BirthDate.DataPropertyName = "BirthDate";
+            BirthDate.HeaderText = "BirthDate";
+            BirthDate.Name = "BirthDate";
+            BirthDate.Width = 81;
+            // 
+            // PatientNote
+            // 
+            PatientNote.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PatientNote.DataPropertyName = "PatientNote";
+            PatientNote.HeaderText = "PatientNote";
+            PatientNote.Name = "PatientNote";
+            // 
             // Operations
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -594,9 +609,6 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "Operations";
             Text = "PatientCare v0.01";
-            ((System.ComponentModel.ISupportInitialize)Dgw_OwnerList).EndInit();
-            ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource2).EndInit();
@@ -604,6 +616,8 @@
             ((System.ComponentModel.ISupportInitialize)Dgw_PatientList).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Dgw_OwnerList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Dgw_ToDoList).EndInit();
             panel3.ResumeLayout(false);
@@ -613,10 +627,6 @@
 
         #endregion
         private ReaLTaiizor.Controls.FoxButton Btn_Search;
-        private DataGridView Dgw_OwnerList;
-        private DataGridViewTextBoxColumn ownerNameDataGridViewTextBoxColumn;
-        private BindingSource patientOwnerBindingSource;
-        private BindingSource patientOwnerBindingSource1;
         private ReaLTaiizor.Controls.FoxBigLabel Lbl_ClientInfo;
         private Label Lbl_Name;
         private Label Lbl_Adress;
@@ -626,9 +636,6 @@
         private BindingSource patientBindingSource2;
         private BindingSource patientBindingSource3;
         private DataGridView Dgw_PatientList;
-        private DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn patientGenderDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn BirthDate;
         private ReaLTaiizor.Controls.FoxButton Btn_PatientInfo;
         private ReaLTaiizor.Controls.FoxButton Btn_VacCalender;
         private ReaLTaiizor.Controls.FoxButton Btn_Sales;
@@ -649,5 +656,13 @@
         private ReaLTaiizor.Controls.FoxBigLabel Lbl_ToDo;
         private Panel panel3;
         private TextBox Txt_Search;
+        private DataGridView Dgw_OwnerList;
+        private BindingSource patientOwnerBindingSource;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn ownerNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn patientGenderDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn BirthDate;
+        private DataGridViewTextBoxColumn PatientNote;
     }
 }

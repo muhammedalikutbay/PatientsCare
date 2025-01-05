@@ -45,7 +45,7 @@ namespace PatientCare.Forms
             DataView dataView = dt.DefaultView;
             dataView.Sort = "Id DESC";
             Dgw_OwnerList.DataSource = dataView.ToTable();
-            Dgw_PatientList.DataSource = patientRepository.GetAll();
+            //Dgw_PatientList.DataSource = patientRepository.GetAll();
             dataTable = dataView.ToTable();
         }
 
@@ -110,7 +110,47 @@ namespace PatientCare.Forms
 
         private void Btn_AddPatient_Click(object sender, EventArgs e)
         {
-            var patientAdd = serviceProvider.GetRequiredKeyedService<PatientsAdd>;
+            var patientAdd = serviceProvider.GetRequiredService<PatientsAdd>();
+            patientAdd.TopMost = true;
+            patientAdd.ShowDialog();
         }
+
+        private void LoadPatientsByOwnerId(string ownerId)
+        {
+            try
+            {
+                var query = "SELECT * FROM Patient WHERE OwnerId = @OwnerId";
+
+                using var conn = new SQLiteConnection(_connectionString);
+                using var cmd = new SQLiteCommand(query, conn);
+                cmd.Parameters.AddWithValue("@OwnerId", ownerId);
+
+                var adapter = new SQLiteDataAdapter(cmd);
+                var dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                Dgw_PatientList.DataSource = dataTable;
+
+                if (dataTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("Bu hasta sahibine ait hayvan bulunamadı.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hayvanlar getirilirken bir hata oluştu: {ex.Message}");
+            }
+        }
+
+        private void Dgw_OwnerList_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < Dgw_OwnerList.Rows.Count)
+            {
+                var selectedOwnerId = Dgw_OwnerList.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                LoadPatientsByOwnerId(selectedOwnerId);
+            }
+        }
+
+        private void LoadOwnerInfo() { }
     }
 }
