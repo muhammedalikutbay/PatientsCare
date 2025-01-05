@@ -17,6 +17,7 @@ namespace PatientCare.Forms
         private readonly IDatabaseRepository<PatientOwner> ownerRepository;
         private readonly IDatabaseRepository<Patient> patientRepository;
         private DataTable dataTable;
+        private string selectedOwnerId;
 
         public Operations(
             IDatabaseService databaseService,
@@ -45,8 +46,8 @@ namespace PatientCare.Forms
             DataView dataView = dt.DefaultView;
             dataView.Sort = "Id DESC";
             Dgw_OwnerList.DataSource = dataView.ToTable();
-            //Dgw_PatientList.DataSource = patientRepository.GetAll();
             dataTable = dataView.ToTable();
+            LoadPatientsByOwnerId(selectedOwnerId);
         }
 
         private void Btn_AddClient_Click(object sender, EventArgs e)
@@ -110,43 +111,50 @@ namespace PatientCare.Forms
 
         private void Btn_AddPatient_Click(object sender, EventArgs e)
         {
-            var patientAdd = serviceProvider.GetRequiredService<PatientsAdd>();
-            patientAdd.TopMost = true;
-            patientAdd.ShowDialog();
+            if (!string.IsNullOrEmpty(selectedOwnerId))
+            {
+                var patientRepository = serviceProvider.GetRequiredService<
+                    IDatabaseRepository<Patient>
+                >();
+                var ownerRepository = serviceProvider.GetRequiredService<
+                    IDatabaseRepository<PatientOwner>
+                >();
+                var patientAdd = new PatientsAdd(
+                    configuration,
+                    patientRepository,
+                    ownerRepository,
+                    selectedOwnerId
+                );
+                patientAdd.TopMost = true;
+                patientAdd.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("İlk önce Hasta Sahibi Seçin.");
+            }
         }
 
         private void LoadPatientsByOwnerId(string ownerId)
         {
-            try
-            {
-                var query = "SELECT * FROM Patient WHERE OwnerId = @OwnerId";
+            var query = "SELECT * FROM Patient WHERE OwnerId = @OwnerId";
 
-                using var conn = new SQLiteConnection(_connectionString);
-                using var cmd = new SQLiteCommand(query, conn);
-                cmd.Parameters.AddWithValue("@OwnerId", ownerId);
+            using var conn = new SQLiteConnection(_connectionString);
+            using var cmd = new SQLiteCommand(query, conn);
+            cmd.Parameters.AddWithValue("@OwnerId", ownerId);
 
-                var adapter = new SQLiteDataAdapter(cmd);
-                var dataTable = new DataTable();
-                adapter.Fill(dataTable);
+            var adapter = new SQLiteDataAdapter(cmd);
+            var dataTable = new DataTable();
+            adapter.Fill(dataTable);
 
-                Dgw_PatientList.DataSource = dataTable;
-
-                if (dataTable.Rows.Count == 0)
-                {
-                    MessageBox.Show("Bu hasta sahibine ait hayvan bulunamadı.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Hayvanlar getirilirken bir hata oluştu: {ex.Message}");
-            }
+            Dgw_PatientList.DataSource = dataTable;
         }
 
         private void Dgw_OwnerList_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < Dgw_OwnerList.Rows.Count)
             {
-                var selectedOwnerId = Dgw_OwnerList.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                selectedOwnerId = Dgw_OwnerList.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                ;
                 LoadPatientsByOwnerId(selectedOwnerId);
                 LoadOwnerInfoById(selectedOwnerId);
             }

@@ -25,7 +25,7 @@
             foxBigLabel1 = new ReaLTaiizor.Controls.FoxBigLabel();
             Txt_Name = new TextBox();
             Txt_Note = new TextBox();
-            foxLabel4 = new ReaLTaiizor.Controls.FoxLabel();
+            Lbl_OwnerName = new ReaLTaiizor.Controls.FoxLabel();
             Btn_Save = new ReaLTaiizor.Controls.FoxButton();
             Lbl_BirthDate = new ReaLTaiizor.Controls.FoxLabel();
             Dtp_BirthDate = new ReaLTaiizor.Controls.PoisonDateTime();
@@ -115,17 +115,17 @@
             Txt_Note.Size = new Size(294, 33);
             Txt_Note.TabIndex = 16;
             // 
-            // foxLabel4
+            // Lbl_OwnerName
             // 
-            foxLabel4.BackColor = Color.Transparent;
-            foxLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            foxLabel4.ForeColor = Color.FromArgb(76, 88, 100);
-            foxLabel4.Location = new Point(194, 90);
-            foxLabel4.Margin = new Padding(4, 3, 4, 3);
-            foxLabel4.Name = "foxLabel4";
-            foxLabel4.Size = new Size(294, 33);
-            foxLabel4.TabIndex = 3;
-            foxLabel4.Text = "Hasta Sahibi";
+            Lbl_OwnerName.BackColor = Color.Transparent;
+            Lbl_OwnerName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            Lbl_OwnerName.ForeColor = Color.FromArgb(76, 88, 100);
+            Lbl_OwnerName.Location = new Point(194, 90);
+            Lbl_OwnerName.Margin = new Padding(4, 3, 4, 3);
+            Lbl_OwnerName.Name = "Lbl_OwnerName";
+            Lbl_OwnerName.Size = new Size(294, 33);
+            Lbl_OwnerName.TabIndex = 3;
+            Lbl_OwnerName.Text = "Hasta Sahibi";
             // 
             // Btn_Save
             // 
@@ -146,6 +146,7 @@
             Btn_Save.Size = new Size(125, 40);
             Btn_Save.TabIndex = 17;
             Btn_Save.Text = "Kaydet";
+            Btn_Save.Click += Btn_Save_Click;
             // 
             // Lbl_BirthDate
             // 
@@ -191,13 +192,12 @@
             Controls.Add(Lbl_BirthDate);
             Controls.Add(foxLabel5);
             Controls.Add(foxLabel3);
-            Controls.Add(foxLabel4);
+            Controls.Add(Lbl_OwnerName);
             Controls.Add(foxLabel2);
             Controls.Add(foxLabel1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4, 3, 4, 3);
             Name = "PatientsAdd";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "PatientsAdd";
             ResumeLayout(false);
             PerformLayout();
@@ -212,7 +212,7 @@
         private ReaLTaiizor.Controls.FoxBigLabel foxBigLabel1;
         private System.Windows.Forms.TextBox Txt_Name;
         private System.Windows.Forms.TextBox Txt_Note;
-        private ReaLTaiizor.Controls.FoxLabel foxLabel4;
+        private ReaLTaiizor.Controls.FoxLabel Lbl_OwnerName;
         private ReaLTaiizor.Controls.FoxButton Btn_Save;
         private ReaLTaiizor.Controls.FoxLabel Lbl_BirthDate;
         private ReaLTaiizor.Controls.PoisonDateTime Dtp_BirthDate;

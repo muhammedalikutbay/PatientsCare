@@ -18,7 +18,7 @@ public class DatabaseRepository<T> : IDatabaseRepository<T> where T : class, new
 
     private string GetTableName()
     {
-        return typeof(T).Name; // Tablo adı olarak sınıf adını kullanır
+        return typeof(T).Name;
     }
 
     public DataTable GetAll()

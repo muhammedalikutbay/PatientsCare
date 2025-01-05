@@ -17,7 +17,6 @@
 
         private void InitializeComponent()
         {
-            Txt_Phone = new TextBox();
             Txt_Adress = new TextBox();
             Txt_Name = new TextBox();
             foxBigLabel1 = new ReaLTaiizor.Controls.FoxBigLabel();
@@ -25,17 +24,8 @@
             foxLabel1 = new ReaLTaiizor.Controls.FoxLabel();
             foxLabel2 = new ReaLTaiizor.Controls.FoxLabel();
             Btn_Save = new ReaLTaiizor.Controls.FoxButton();
+            Txt_PhoneNo = new MaskedTextBox();
             SuspendLayout();
-            // 
-            // Txt_Phone
-            // 
-            Txt_Phone.BackColor = SystemColors.ControlLightLight;
-            Txt_Phone.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            Txt_Phone.Location = new Point(188, 156);
-            Txt_Phone.Margin = new Padding(4, 3, 4, 3);
-            Txt_Phone.Name = "Txt_Phone";
-            Txt_Phone.Size = new Size(294, 31);
-            Txt_Phone.TabIndex = 26;
             // 
             // Txt_Adress
             // 
@@ -127,13 +117,22 @@
             Btn_Save.Text = "Kaydet";
             Btn_Save.Click += foxButton1_Click;
             // 
+            // Txt_PhoneNo
+            // 
+            Txt_PhoneNo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            Txt_PhoneNo.Location = new Point(188, 160);
+            Txt_PhoneNo.Mask = "(999) 000-00-00";
+            Txt_PhoneNo.Name = "Txt_PhoneNo";
+            Txt_PhoneNo.Size = new Size(294, 33);
+            Txt_PhoneNo.TabIndex = 28;
+            // 
             // OwnerAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(510, 278);
+            Controls.Add(Txt_PhoneNo);
             Controls.Add(Btn_Save);
-            Controls.Add(Txt_Phone);
             Controls.Add(Txt_Adress);
             Controls.Add(Txt_Name);
             Controls.Add(foxBigLabel1);
@@ -151,7 +150,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox Txt_Phone;
         private System.Windows.Forms.TextBox Txt_Adress;
         private System.Windows.Forms.TextBox Txt_Name;
         private ReaLTaiizor.Controls.FoxBigLabel foxBigLabel1;
@@ -160,5 +158,6 @@
         private ReaLTaiizor.Controls.FoxLabel foxLabel1;
         private ReaLTaiizor.Controls.FoxLabel foxLabel2;
         private ReaLTaiizor.Controls.FoxButton Btn_Save;
+        private MaskedTextBox Txt_PhoneNo;
     }
 }
