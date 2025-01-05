@@ -148,9 +148,36 @@ namespace PatientCare.Forms
             {
                 var selectedOwnerId = Dgw_OwnerList.Rows[e.RowIndex].Cells["Id"].Value.ToString();
                 LoadPatientsByOwnerId(selectedOwnerId);
+                LoadOwnerInfoById(selectedOwnerId);
             }
         }
 
-        private void LoadOwnerInfo() { }
+        private void LoadOwnerInfoById(string ownerId)
+        {
+            var query =
+                "SELECT OwnerName, OwnerAdress, OwnerPhone FROM PatientOwner WHERE Id = @OwnerId";
+
+            using var conn = new SQLiteConnection(_connectionString);
+            using var cmd = new SQLiteCommand(query, conn);
+            cmd.Parameters.AddWithValue("@OwnerId", ownerId);
+
+            conn.Open();
+            using var reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                Txt_Name.Text = reader["OwnerName"].ToString();
+                Txt_Adress.Text = reader["OwnerAdress"].ToString();
+                Txt_Phone.Text = reader["OwnerPhone"].ToString();
+            }
+            else
+            {
+                Txt_Name.Text = string.Empty;
+                Txt_Adress.Text = string.Empty;
+                Txt_Phone.Text = string.Empty;
+
+                MessageBox.Show("Müşteri bilgileri bulunamadı.");
+            }
+        }
     }
 }
