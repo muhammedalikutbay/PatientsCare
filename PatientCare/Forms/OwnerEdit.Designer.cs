@@ -152,6 +152,7 @@
             Controls.Add(foxLabel2);
             Controls.Add(foxLabel1);
             Name = "OwnerEdit";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OwnerEdit";
             ResumeLayout(false);
             PerformLayout();

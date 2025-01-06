@@ -224,6 +224,7 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4, 3, 4, 3);
             Name = "PatientsAdd";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PatientsAdd";
             ResumeLayout(false);
             PerformLayout();

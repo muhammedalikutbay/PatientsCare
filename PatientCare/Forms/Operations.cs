@@ -19,6 +19,7 @@ namespace PatientCare.Forms
         private readonly IDatabaseRepository<Patient> patientRepository;
         private DataTable dataTable;
         private string selectedOwnerId;
+        private string selectedPatientId;
 
         public Operations(
             IDatabaseService databaseService,
@@ -114,12 +115,6 @@ namespace PatientCare.Forms
         {
             if (!string.IsNullOrEmpty(selectedOwnerId))
             {
-                var patientRepository = serviceProvider.GetRequiredService<
-                    IDatabaseRepository<Patient>
-                >();
-                var ownerRepository = serviceProvider.GetRequiredService<
-                    IDatabaseRepository<PatientOwner>
-                >();
                 var patientAdd = new PatientsAdd(
                     configuration,
                     serviceProvider,
@@ -156,7 +151,6 @@ namespace PatientCare.Forms
             if (e.RowIndex >= 0 && e.RowIndex < Dgw_OwnerList.Rows.Count)
             {
                 selectedOwnerId = Dgw_OwnerList.Rows[e.RowIndex].Cells["Id"].Value?.ToString();
-                ;
                 LoadPatientsByOwnerId(selectedOwnerId);
                 LoadOwnerInfoById(selectedOwnerId);
             }
@@ -263,6 +257,65 @@ namespace PatientCare.Forms
             else
             {
                 MessageBox.Show("Lütfen bir hasta sahibi seçin.");
+            }
+        }
+
+        private void Operations_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                MessageBox.Show("Tam ekran moduna geçilemez.");
+            }
+        }
+
+        private void Dgw_PatientList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < Dgw_PatientList.Rows.Count)
+            {
+                selectedPatientId = Dgw_PatientList.Rows[e.RowIndex].Cells[0].Value?.ToString();
+            }
+        }
+
+        private void Btn_PatientDelete_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(selectedPatientId))
+            {
+                DialogResult dialogResult = MessageBox.Show(
+                    "Seçili hayvanı silmek istediğinizden emin misiniz?",
+                    "Kaydı Sil",
+                    MessageBoxButtons.YesNo
+                );
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string query = "DELETE FROM Patient WHERE Id = @Id";
+
+                    using (var conn = new SQLiteConnection(_connectionString))
+                    {
+                        using (var cmd = new SQLiteCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", selectedPatientId);
+
+                            conn.Open();
+                            int result = cmd.ExecuteNonQuery();
+
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Seçili hayvan başarıyla silindi.");
+                                LoadData();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Seçili hayvan silinemedi.");
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir hayvan seçin.");
             }
         }
     }

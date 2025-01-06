@@ -40,11 +40,6 @@
             patientBindingSource2 = new BindingSource(components);
             patientBindingSource3 = new BindingSource(components);
             Dgw_PatientList = new DataGridView();
-            patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            BirthDate = new DataGridViewTextBoxColumn();
-            PatientNote = new DataGridViewTextBoxColumn();
-            Btn_PatientInfo = new ReaLTaiizor.Controls.FoxButton();
             Btn_VacCalender = new ReaLTaiizor.Controls.FoxButton();
             Btn_AddPatient = new ReaLTaiizor.Controls.FoxButton();
             Btn_AddClient = new ReaLTaiizor.Controls.FoxButton();
@@ -54,11 +49,12 @@
             Lbl_Operations = new ReaLTaiizor.Controls.FoxBigLabel();
             panel1 = new Panel();
             Dgw_OwnerList = new DataGridView();
-            Id = new DataGridViewTextBoxColumn();
-            ownerNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             patientOwnerBindingSource = new BindingSource(components);
             Txt_Search = new TextBox();
             panel2 = new Panel();
+            foxButton3 = new ReaLTaiizor.Controls.FoxButton();
+            foxButton4 = new ReaLTaiizor.Controls.FoxButton();
+            foxButton2 = new ReaLTaiizor.Controls.FoxButton();
             Dgw_ToDoList = new DataGridView();
             Lbl_ToDo = new ReaLTaiizor.Controls.FoxBigLabel();
             panel3 = new Panel();
@@ -68,6 +64,14 @@
             foxButton1 = new ReaLTaiizor.Controls.FoxButton();
             Btn_Sale = new ReaLTaiizor.Controls.FoxButton();
             Btn_Delete = new ReaLTaiizor.Controls.FoxButton();
+            Btn_PatientDelete = new ReaLTaiizor.Controls.FoxButton();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            BirthDate = new DataGridViewTextBoxColumn();
+            PatientNote = new DataGridViewTextBoxColumn();
+            Id = new DataGridViewTextBoxColumn();
+            ownerNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource2).BeginInit();
@@ -115,7 +119,7 @@
             Lbl_ClientInfo.Name = "Lbl_ClientInfo";
             Lbl_ClientInfo.Size = new Size(524, 42);
             Lbl_ClientInfo.TabIndex = 3;
-            Lbl_ClientInfo.Text = "Müşteri Bilgileri";
+            Lbl_ClientInfo.Text = "Hasta Sahibi Bilgileri";
             // 
             // Lbl_Name
             // 
@@ -173,64 +177,14 @@
             // 
             Dgw_PatientList.AutoGenerateColumns = false;
             Dgw_PatientList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Dgw_PatientList.Columns.AddRange(new DataGridViewColumn[] { patientNameDataGridViewTextBoxColumn, patientGenderDataGridViewTextBoxColumn, BirthDate, PatientNote });
+            Dgw_PatientList.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, patientNameDataGridViewTextBoxColumn, patientGenderDataGridViewTextBoxColumn, BirthDate, PatientNote });
             Dgw_PatientList.DataSource = patientBindingSource1;
             Dgw_PatientList.Location = new Point(12, 233);
             Dgw_PatientList.Margin = new Padding(4, 3, 4, 3);
             Dgw_PatientList.Name = "Dgw_PatientList";
             Dgw_PatientList.Size = new Size(524, 150);
             Dgw_PatientList.TabIndex = 7;
-            // 
-            // patientNameDataGridViewTextBoxColumn
-            // 
-            patientNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
-            patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
-            patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
-            patientNameDataGridViewTextBoxColumn.Width = 101;
-            // 
-            // patientGenderDataGridViewTextBoxColumn
-            // 
-            patientGenderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            patientGenderDataGridViewTextBoxColumn.DataPropertyName = "PatientGender";
-            patientGenderDataGridViewTextBoxColumn.HeaderText = "PatientGender";
-            patientGenderDataGridViewTextBoxColumn.Name = "patientGenderDataGridViewTextBoxColumn";
-            patientGenderDataGridViewTextBoxColumn.Width = 107;
-            // 
-            // BirthDate
-            // 
-            BirthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            BirthDate.DataPropertyName = "BirthDate";
-            BirthDate.HeaderText = "BirthDate";
-            BirthDate.Name = "BirthDate";
-            BirthDate.Width = 81;
-            // 
-            // PatientNote
-            // 
-            PatientNote.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            PatientNote.DataPropertyName = "PatientNote";
-            PatientNote.HeaderText = "PatientNote";
-            PatientNote.Name = "PatientNote";
-            // 
-            // Btn_PatientInfo
-            // 
-            Btn_PatientInfo.BackColor = Color.Transparent;
-            Btn_PatientInfo.BaseColor = Color.FromArgb(249, 249, 249);
-            Btn_PatientInfo.BorderColor = Color.FromArgb(193, 193, 193);
-            Btn_PatientInfo.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            Btn_PatientInfo.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            Btn_PatientInfo.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            Btn_PatientInfo.DownColor = Color.FromArgb(232, 232, 232);
-            Btn_PatientInfo.EnabledCalc = true;
-            Btn_PatientInfo.Font = new Font("Segoe UI", 10F);
-            Btn_PatientInfo.ForeColor = Color.FromArgb(66, 78, 90);
-            Btn_PatientInfo.Location = new Point(298, 389);
-            Btn_PatientInfo.Margin = new Padding(4, 3, 4, 3);
-            Btn_PatientInfo.Name = "Btn_PatientInfo";
-            Btn_PatientInfo.OverColor = Color.FromArgb(242, 242, 242);
-            Btn_PatientInfo.Size = new Size(120, 40);
-            Btn_PatientInfo.TabIndex = 8;
-            Btn_PatientInfo.Text = "Hayvan Bilgileri";
+            Dgw_PatientList.CellClick += Dgw_PatientList_CellClick;
             // 
             // Btn_VacCalender
             // 
@@ -244,11 +198,11 @@
             Btn_VacCalender.EnabledCalc = true;
             Btn_VacCalender.Font = new Font("Segoe UI", 10F);
             Btn_VacCalender.ForeColor = Color.FromArgb(66, 78, 90);
-            Btn_VacCalender.Location = new Point(426, 389);
+            Btn_VacCalender.Location = new Point(436, 389);
             Btn_VacCalender.Margin = new Padding(4, 3, 4, 3);
             Btn_VacCalender.Name = "Btn_VacCalender";
             Btn_VacCalender.OverColor = Color.FromArgb(242, 242, 242);
-            Btn_VacCalender.Size = new Size(110, 40);
+            Btn_VacCalender.Size = new Size(100, 40);
             Btn_VacCalender.TabIndex = 8;
             Btn_VacCalender.Text = "Yapılacak Ekle";
             // 
@@ -269,7 +223,7 @@
             Btn_AddPatient.Name = "Btn_AddPatient";
             Btn_AddPatient.OverColor = Color.FromArgb(242, 242, 242);
             Btn_AddPatient.RightToLeft = RightToLeft.No;
-            Btn_AddPatient.Size = new Size(120, 40);
+            Btn_AddPatient.Size = new Size(103, 40);
             Btn_AddPatient.TabIndex = 8;
             Btn_AddPatient.Text = "Hayvan Ekle";
             Btn_AddPatient.Click += Btn_AddPatient_Click;
@@ -291,9 +245,9 @@
             Btn_AddClient.Name = "Btn_AddClient";
             Btn_AddClient.OverColor = Color.FromArgb(242, 242, 242);
             Btn_AddClient.RightToLeft = RightToLeft.No;
-            Btn_AddClient.Size = new Size(147, 40);
+            Btn_AddClient.Size = new Size(175, 40);
             Btn_AddClient.TabIndex = 8;
-            Btn_AddClient.Text = "Yeni Müşteri";
+            Btn_AddClient.Text = "Hasta Sahibi Ekle";
             Btn_AddClient.Click += Btn_AddClient_Click;
             // 
             // Btn_EditPatient
@@ -308,11 +262,11 @@
             Btn_EditPatient.EnabledCalc = true;
             Btn_EditPatient.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
             Btn_EditPatient.ForeColor = Color.FromArgb(66, 78, 90);
-            Btn_EditPatient.Location = new Point(140, 389);
+            Btn_EditPatient.Location = new Point(123, 389);
             Btn_EditPatient.Margin = new Padding(4, 3, 4, 3);
             Btn_EditPatient.Name = "Btn_EditPatient";
             Btn_EditPatient.OverColor = Color.FromArgb(242, 242, 242);
-            Btn_EditPatient.Size = new Size(150, 40);
+            Btn_EditPatient.Size = new Size(162, 40);
             Btn_EditPatient.TabIndex = 8;
             Btn_EditPatient.Text = "Hayvan Bilgileri Düzelt";
             // 
@@ -332,9 +286,9 @@
             Btn_EditClient.Margin = new Padding(4, 3, 4, 3);
             Btn_EditClient.Name = "Btn_EditClient";
             Btn_EditClient.OverColor = Color.FromArgb(242, 242, 242);
-            Btn_EditClient.Size = new Size(147, 40);
+            Btn_EditClient.Size = new Size(175, 40);
             Btn_EditClient.TabIndex = 8;
-            Btn_EditClient.Text = "Müşteri Bilgileri Düzelt";
+            Btn_EditClient.Text = "Hasta Sahibi Bilgileri Düzelt";
             Btn_EditClient.Click += Btn_EditClient_Click;
             // 
             // Lbl_ClientPatients
@@ -367,6 +321,8 @@
             // 
             // panel1
             // 
+            panel1.AutoSize = true;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.Controls.Add(Dgw_OwnerList);
             panel1.Controls.Add(Txt_Search);
             panel1.Controls.Add(Btn_Search);
@@ -374,7 +330,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(320, 589);
+            panel1.Size = new Size(317, 589);
             panel1.TabIndex = 9;
             // 
             // Dgw_OwnerList
@@ -386,24 +342,9 @@
             Dgw_OwnerList.DataSource = patientOwnerBindingSource;
             Dgw_OwnerList.Location = new Point(12, 53);
             Dgw_OwnerList.Name = "Dgw_OwnerList";
-            Dgw_OwnerList.Size = new Size(301, 509);
+            Dgw_OwnerList.Size = new Size(301, 521);
             Dgw_OwnerList.TabIndex = 4;
             Dgw_OwnerList.CellClick += Dgw_OwnerList_CellClick_1;
-            // 
-            // Id
-            // 
-            Id.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            Id.DataPropertyName = "Id";
-            Id.HeaderText = "Id";
-            Id.Name = "Id";
-            Id.Width = 42;
-            // 
-            // ownerNameDataGridViewTextBoxColumn
-            // 
-            ownerNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ownerNameDataGridViewTextBoxColumn.DataPropertyName = "OwnerName";
-            ownerNameDataGridViewTextBoxColumn.HeaderText = "OwnerName";
-            ownerNameDataGridViewTextBoxColumn.Name = "ownerNameDataGridViewTextBoxColumn";
             // 
             // patientOwnerBindingSource
             // 
@@ -423,22 +364,84 @@
             // 
             // panel2
             // 
+            panel2.AutoSize = true;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel2.Controls.Add(foxButton3);
+            panel2.Controls.Add(foxButton4);
+            panel2.Controls.Add(foxButton2);
             panel2.Controls.Add(Dgw_ToDoList);
             panel2.Controls.Add(Lbl_ToDo);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(862, 0);
+            panel2.Location = new Point(870, 0);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(320, 589);
+            panel2.Size = new Size(312, 589);
             panel2.TabIndex = 10;
+            // 
+            // foxButton3
+            // 
+            foxButton3.BackColor = Color.Transparent;
+            foxButton3.BaseColor = Color.FromArgb(249, 249, 249);
+            foxButton3.BorderColor = Color.FromArgb(193, 193, 193);
+            foxButton3.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            foxButton3.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            foxButton3.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            foxButton3.DownColor = Color.FromArgb(232, 232, 232);
+            foxButton3.EnabledCalc = true;
+            foxButton3.Font = new Font("Segoe UI", 10F);
+            foxButton3.ForeColor = Color.FromArgb(66, 78, 90);
+            foxButton3.Location = new Point(88, 60);
+            foxButton3.Name = "foxButton3";
+            foxButton3.OverColor = Color.FromArgb(242, 242, 242);
+            foxButton3.Size = new Size(103, 40);
+            foxButton3.TabIndex = 4;
+            foxButton3.Text = "Bugüne Kadar";
+            // 
+            // foxButton4
+            // 
+            foxButton4.BackColor = Color.Transparent;
+            foxButton4.BaseColor = Color.FromArgb(249, 249, 249);
+            foxButton4.BorderColor = Color.FromArgb(193, 193, 193);
+            foxButton4.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            foxButton4.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            foxButton4.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            foxButton4.DownColor = Color.FromArgb(232, 232, 232);
+            foxButton4.EnabledCalc = true;
+            foxButton4.Font = new Font("Segoe UI", 10F);
+            foxButton4.ForeColor = Color.FromArgb(66, 78, 90);
+            foxButton4.Location = new Point(197, 60);
+            foxButton4.Name = "foxButton4";
+            foxButton4.OverColor = Color.FromArgb(242, 242, 242);
+            foxButton4.Size = new Size(111, 40);
+            foxButton4.TabIndex = 4;
+            foxButton4.Text = "Gelecektekiler";
+            // 
+            // foxButton2
+            // 
+            foxButton2.BackColor = Color.Transparent;
+            foxButton2.BaseColor = Color.FromArgb(249, 249, 249);
+            foxButton2.BorderColor = Color.FromArgb(193, 193, 193);
+            foxButton2.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            foxButton2.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            foxButton2.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            foxButton2.DownColor = Color.FromArgb(232, 232, 232);
+            foxButton2.EnabledCalc = true;
+            foxButton2.Font = new Font("Segoe UI", 10F);
+            foxButton2.ForeColor = Color.FromArgb(66, 78, 90);
+            foxButton2.Location = new Point(16, 60);
+            foxButton2.Name = "foxButton2";
+            foxButton2.OverColor = Color.FromArgb(242, 242, 242);
+            foxButton2.Size = new Size(66, 40);
+            foxButton2.TabIndex = 4;
+            foxButton2.Text = "Bugün";
             // 
             // Dgw_ToDoList
             // 
             Dgw_ToDoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Dgw_ToDoList.Location = new Point(16, 67);
+            Dgw_ToDoList.Location = new Point(16, 108);
             Dgw_ToDoList.Margin = new Padding(4, 3, 4, 3);
             Dgw_ToDoList.Name = "Dgw_ToDoList";
-            Dgw_ToDoList.Size = new Size(299, 507);
+            Dgw_ToDoList.Size = new Size(292, 466);
             Dgw_ToDoList.TabIndex = 0;
             // 
             // Lbl_ToDo
@@ -457,6 +460,8 @@
             // 
             // panel3
             // 
+            panel3.AutoSize = true;
+            panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel3.Controls.Add(Txt_Phone);
             panel3.Controls.Add(Txt_Adress);
             panel3.Controls.Add(Txt_Name);
@@ -469,19 +474,19 @@
             panel3.Controls.Add(Btn_AddClient);
             panel3.Controls.Add(Btn_EditPatient);
             panel3.Controls.Add(Lbl_Name);
+            panel3.Controls.Add(Btn_PatientDelete);
             panel3.Controls.Add(Btn_AddPatient);
             panel3.Controls.Add(Lbl_Adress);
             panel3.Controls.Add(Lbl_ClientPatients);
             panel3.Controls.Add(Dgw_PatientList);
             panel3.Controls.Add(Lbl_Operations);
-            panel3.Controls.Add(Btn_PatientInfo);
             panel3.Controls.Add(Btn_VacCalender);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(320, 0);
+            panel3.Location = new Point(317, 0);
             panel3.Margin = new Padding(4, 3, 4, 3);
             panel3.Name = "panel3";
             panel3.RightToLeft = RightToLeft.No;
-            panel3.Size = new Size(542, 589);
+            panel3.Size = new Size(553, 589);
             panel3.TabIndex = 11;
             // 
             // Txt_Phone
@@ -570,10 +575,88 @@
             Btn_Delete.Margin = new Padding(4, 3, 4, 3);
             Btn_Delete.Name = "Btn_Delete";
             Btn_Delete.OverColor = Color.FromArgb(242, 242, 242);
-            Btn_Delete.Size = new Size(147, 40);
+            Btn_Delete.Size = new Size(175, 40);
             Btn_Delete.TabIndex = 8;
-            Btn_Delete.Text = "Müşteri Kaydını Sil";
+            Btn_Delete.Text = "Hasta Sahibi Kaydını Sil";
             Btn_Delete.Click += Btn_Delete_Click;
+            // 
+            // Btn_PatientDelete
+            // 
+            Btn_PatientDelete.BackColor = Color.Transparent;
+            Btn_PatientDelete.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_PatientDelete.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_PatientDelete.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_PatientDelete.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_PatientDelete.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_PatientDelete.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_PatientDelete.EnabledCalc = true;
+            Btn_PatientDelete.Font = new Font("Segoe UI", 10F);
+            Btn_PatientDelete.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_PatientDelete.Location = new Point(293, 389);
+            Btn_PatientDelete.Margin = new Padding(4, 3, 4, 3);
+            Btn_PatientDelete.Name = "Btn_PatientDelete";
+            Btn_PatientDelete.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_PatientDelete.RightToLeft = RightToLeft.No;
+            Btn_PatientDelete.Size = new Size(135, 40);
+            Btn_PatientDelete.TabIndex = 8;
+            Btn_PatientDelete.Text = "Hayvan Kaydını Sil";
+            Btn_PatientDelete.Click += Btn_PatientDelete_Click;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            dataGridViewTextBoxColumn1.HeaderText = "Id";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // patientNameDataGridViewTextBoxColumn
+            // 
+            patientNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
+            patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
+            patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
+            patientNameDataGridViewTextBoxColumn.Width = 101;
+            // 
+            // patientGenderDataGridViewTextBoxColumn
+            // 
+            patientGenderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            patientGenderDataGridViewTextBoxColumn.DataPropertyName = "PatientGender";
+            patientGenderDataGridViewTextBoxColumn.HeaderText = "PatientGender";
+            patientGenderDataGridViewTextBoxColumn.Name = "patientGenderDataGridViewTextBoxColumn";
+            patientGenderDataGridViewTextBoxColumn.Width = 107;
+            // 
+            // BirthDate
+            // 
+            BirthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            BirthDate.DataPropertyName = "BirthDate";
+            BirthDate.HeaderText = "BirthDate";
+            BirthDate.Name = "BirthDate";
+            BirthDate.Width = 81;
+            // 
+            // PatientNote
+            // 
+            PatientNote.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PatientNote.DataPropertyName = "PatientNote";
+            PatientNote.HeaderText = "PatientNote";
+            PatientNote.Name = "PatientNote";
+            // 
+            // Id
+            // 
+            Id.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            Id.Width = 42;
+            // 
+            // ownerNameDataGridViewTextBoxColumn
+            // 
+            ownerNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ownerNameDataGridViewTextBoxColumn.DataPropertyName = "OwnerName";
+            ownerNameDataGridViewTextBoxColumn.HeaderText = "OwnerName";
+            ownerNameDataGridViewTextBoxColumn.Name = "ownerNameDataGridViewTextBoxColumn";
             // 
             // Operations
             // 
@@ -587,7 +670,9 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "Operations";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PatientCare v0.01";
+            Resize += Operations_Resize;
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource2).EndInit();
@@ -602,6 +687,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -615,7 +701,6 @@
         private BindingSource patientBindingSource2;
         private BindingSource patientBindingSource3;
         private DataGridView Dgw_PatientList;
-        private ReaLTaiizor.Controls.FoxButton Btn_PatientInfo;
         private ReaLTaiizor.Controls.FoxButton Btn_VacCalender;
         private ReaLTaiizor.Controls.FoxButton Btn_AddPatient;
         private ReaLTaiizor.Controls.FoxButton Btn_AddClient;
@@ -631,17 +716,22 @@
         private TextBox Txt_Search;
         private DataGridView Dgw_OwnerList;
         private BindingSource patientOwnerBindingSource;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn ownerNameDataGridViewTextBoxColumn;
         private TextBox Txt_Phone;
         private TextBox Txt_Adress;
         private TextBox Txt_Name;
+        private ReaLTaiizor.Controls.FoxButton Btn_Sale;
+        private ReaLTaiizor.Controls.FoxButton foxButton1;
+        private ReaLTaiizor.Controls.FoxButton Btn_Delete;
+        private ReaLTaiizor.Controls.FoxButton foxButton3;
+        private ReaLTaiizor.Controls.FoxButton foxButton4;
+        private ReaLTaiizor.Controls.FoxButton foxButton2;
+        private ReaLTaiizor.Controls.FoxButton Btn_PatientDelete;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn patientGenderDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn BirthDate;
         private DataGridViewTextBoxColumn PatientNote;
-        private ReaLTaiizor.Controls.FoxButton Btn_Sale;
-        private ReaLTaiizor.Controls.FoxButton foxButton1;
-        private ReaLTaiizor.Controls.FoxButton Btn_Delete;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn ownerNameDataGridViewTextBoxColumn;
     }
 }
