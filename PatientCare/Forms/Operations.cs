@@ -318,5 +318,26 @@ namespace PatientCare.Forms
                 MessageBox.Show("Lütfen bir hayvan seçin.");
             }
         }
+
+        private void Btn_EditPatient_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(selectedOwnerId))
+            {
+                string patientId = selectedPatientId;
+                string ownerId = selectedOwnerId;
+
+                PatientEdit ownerEditForm = new PatientEdit(
+                    configuration,
+                    patientId,
+                    ownerId
+                );
+                ownerEditForm.ShowDialog();
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir hayvan seçin.");
+            }
+        }
     }
 }

@@ -40,6 +40,11 @@
             patientBindingSource2 = new BindingSource(components);
             patientBindingSource3 = new BindingSource(components);
             Dgw_PatientList = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            BirthDate = new DataGridViewTextBoxColumn();
+            PatientNote = new DataGridViewTextBoxColumn();
             Btn_VacCalender = new ReaLTaiizor.Controls.FoxButton();
             Btn_AddPatient = new ReaLTaiizor.Controls.FoxButton();
             Btn_AddClient = new ReaLTaiizor.Controls.FoxButton();
@@ -49,6 +54,8 @@
             Lbl_Operations = new ReaLTaiizor.Controls.FoxBigLabel();
             panel1 = new Panel();
             Dgw_OwnerList = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            ownerNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             patientOwnerBindingSource = new BindingSource(components);
             Txt_Search = new TextBox();
             panel2 = new Panel();
@@ -65,13 +72,6 @@
             Btn_Sale = new ReaLTaiizor.Controls.FoxButton();
             Btn_Delete = new ReaLTaiizor.Controls.FoxButton();
             Btn_PatientDelete = new ReaLTaiizor.Controls.FoxButton();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            BirthDate = new DataGridViewTextBoxColumn();
-            PatientNote = new DataGridViewTextBoxColumn();
-            Id = new DataGridViewTextBoxColumn();
-            ownerNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource2).BeginInit();
@@ -186,6 +186,45 @@
             Dgw_PatientList.TabIndex = 7;
             Dgw_PatientList.CellClick += Dgw_PatientList_CellClick;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            dataGridViewTextBoxColumn1.HeaderText = "Id";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // patientNameDataGridViewTextBoxColumn
+            // 
+            patientNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
+            patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
+            patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
+            patientNameDataGridViewTextBoxColumn.Width = 101;
+            // 
+            // patientGenderDataGridViewTextBoxColumn
+            // 
+            patientGenderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            patientGenderDataGridViewTextBoxColumn.DataPropertyName = "PatientGender";
+            patientGenderDataGridViewTextBoxColumn.HeaderText = "PatientGender";
+            patientGenderDataGridViewTextBoxColumn.Name = "patientGenderDataGridViewTextBoxColumn";
+            patientGenderDataGridViewTextBoxColumn.Width = 107;
+            // 
+            // BirthDate
+            // 
+            BirthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            BirthDate.DataPropertyName = "BirthDate";
+            BirthDate.HeaderText = "BirthDate";
+            BirthDate.Name = "BirthDate";
+            BirthDate.Width = 81;
+            // 
+            // PatientNote
+            // 
+            PatientNote.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PatientNote.DataPropertyName = "PatientNote";
+            PatientNote.HeaderText = "PatientNote";
+            PatientNote.Name = "PatientNote";
+            // 
             // Btn_VacCalender
             // 
             Btn_VacCalender.BackColor = Color.Transparent;
@@ -269,6 +308,7 @@
             Btn_EditPatient.Size = new Size(162, 40);
             Btn_EditPatient.TabIndex = 8;
             Btn_EditPatient.Text = "Hayvan Bilgileri Düzelt";
+            Btn_EditPatient.Click += Btn_EditPatient_Click;
             // 
             // Btn_EditClient
             // 
@@ -345,6 +385,22 @@
             Dgw_OwnerList.Size = new Size(301, 521);
             Dgw_OwnerList.TabIndex = 4;
             Dgw_OwnerList.CellClick += Dgw_OwnerList_CellClick_1;
+            // 
+            // Id
+            // 
+            Id.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
+            // ownerNameDataGridViewTextBoxColumn
+            // 
+            ownerNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ownerNameDataGridViewTextBoxColumn.DataPropertyName = "OwnerName";
+            ownerNameDataGridViewTextBoxColumn.HeaderText = "OwnerName";
+            ownerNameDataGridViewTextBoxColumn.Name = "ownerNameDataGridViewTextBoxColumn";
             // 
             // patientOwnerBindingSource
             // 
@@ -601,62 +657,6 @@
             Btn_PatientDelete.TabIndex = 8;
             Btn_PatientDelete.Text = "Hayvan Kaydını Sil";
             Btn_PatientDelete.Click += Btn_PatientDelete_Click;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            dataGridViewTextBoxColumn1.HeaderText = "Id";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // patientNameDataGridViewTextBoxColumn
-            // 
-            patientNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
-            patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
-            patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
-            patientNameDataGridViewTextBoxColumn.Width = 101;
-            // 
-            // patientGenderDataGridViewTextBoxColumn
-            // 
-            patientGenderDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            patientGenderDataGridViewTextBoxColumn.DataPropertyName = "PatientGender";
-            patientGenderDataGridViewTextBoxColumn.HeaderText = "PatientGender";
-            patientGenderDataGridViewTextBoxColumn.Name = "patientGenderDataGridViewTextBoxColumn";
-            patientGenderDataGridViewTextBoxColumn.Width = 107;
-            // 
-            // BirthDate
-            // 
-            BirthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            BirthDate.DataPropertyName = "BirthDate";
-            BirthDate.HeaderText = "BirthDate";
-            BirthDate.Name = "BirthDate";
-            BirthDate.Width = 81;
-            // 
-            // PatientNote
-            // 
-            PatientNote.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            PatientNote.DataPropertyName = "PatientNote";
-            PatientNote.HeaderText = "PatientNote";
-            PatientNote.Name = "PatientNote";
-            // 
-            // Id
-            // 
-            Id.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            Id.DataPropertyName = "Id";
-            Id.HeaderText = "Id";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            Id.Width = 42;
-            // 
-            // ownerNameDataGridViewTextBoxColumn
-            // 
-            ownerNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ownerNameDataGridViewTextBoxColumn.DataPropertyName = "OwnerName";
-            ownerNameDataGridViewTextBoxColumn.HeaderText = "OwnerName";
-            ownerNameDataGridViewTextBoxColumn.Name = "ownerNameDataGridViewTextBoxColumn";
             // 
             // Operations
             // 
