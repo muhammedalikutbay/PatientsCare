@@ -335,6 +335,7 @@
             Btn_EditClient.Size = new Size(147, 40);
             Btn_EditClient.TabIndex = 8;
             Btn_EditClient.Text = "Müşteri Bilgileri Düzelt";
+            Btn_EditClient.Click += Btn_EditClient_Click;
             // 
             // Lbl_ClientPatients
             // 

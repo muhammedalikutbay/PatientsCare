@@ -155,7 +155,7 @@ namespace PatientCare.Forms
         {
             if (e.RowIndex >= 0 && e.RowIndex < Dgw_OwnerList.Rows.Count)
             {
-                selectedOwnerId = Dgw_OwnerList.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                selectedOwnerId = Dgw_OwnerList.Rows[e.RowIndex].Cells["Id"].Value?.ToString();
                 ;
                 LoadPatientsByOwnerId(selectedOwnerId);
                 LoadOwnerInfoById(selectedOwnerId);
@@ -233,6 +233,32 @@ namespace PatientCare.Forms
                         }
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir hasta sahibi seçin.");
+            }
+        }
+
+        private void Btn_EditClient_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(selectedOwnerId))
+            {
+                string ownerId = selectedOwnerId;
+                string ownerName = Txt_Name.Text;
+                string ownerPhone = Txt_Phone.Text;
+                string ownerAdress = Txt_Adress.Text;
+
+                OwnerEdit ownerEditForm = new OwnerEdit(
+                    configuration,
+                    ownerId,
+                    ownerName,
+                    ownerPhone,
+                    ownerAdress
+                );
+                ownerEditForm.ShowDialog();
+                LoadData();
+                LoadOwnerInfoById(selectedOwnerId);
             }
             else
             {
