@@ -364,6 +364,7 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "ToDoAdd";
             Text = "ToDoAdd";
+            FormClosed += ToDoAdd_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }

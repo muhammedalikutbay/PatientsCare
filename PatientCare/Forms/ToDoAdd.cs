@@ -25,8 +25,9 @@ namespace PatientCare.Forms
         private string _selectedOwnerId;
         private readonly IServiceProvider _serviceProvider;
 
-        public ToDoAdd(IConfiguration configuration, string patientId, string selectedOwnerId)
+        public ToDoAdd(IServiceProvider serviceProvider, IConfiguration configuration, string patientId, string selectedOwnerId)
         {
+            _serviceProvider = serviceProvider;
             _patientId = patientId;
             _selectedOwnerId = selectedOwnerId;
             _connectionString = configuration.GetConnectionString("DefaultConnection");
@@ -133,9 +134,14 @@ namespace PatientCare.Forms
 
                 MessageBox.Show("Yapılacak başarıyla eklendi!");
 
-                var operations = _serviceProvider.GetRequiredService<Operations>();
-                operations.LoadData();
+               
             }
+        }
+
+        private void ToDoAdd_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var operations = _serviceProvider.GetRequiredService<Operations>();
+            operations.LoadData();
         }
     }
 }

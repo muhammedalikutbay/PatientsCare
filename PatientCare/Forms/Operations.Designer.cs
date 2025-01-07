@@ -30,15 +30,16 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Operations));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             Btn_Search = new ReaLTaiizor.Controls.FoxButton();
             Lbl_ClientInfo = new ReaLTaiizor.Controls.FoxBigLabel();
             Lbl_Name = new Label();
             Lbl_Adress = new Label();
             Lbl_Phone = new Label();
-            patientBindingSource = new BindingSource(components);
             patientBindingSource1 = new BindingSource(components);
-            patientBindingSource2 = new BindingSource(components);
-            patientBindingSource3 = new BindingSource(components);
             Dgw_PatientList = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             patientNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -64,6 +65,7 @@
             Btn_Today = new ReaLTaiizor.Controls.FoxButton();
             Dgw_ToDoList = new DataGridView();
             Lbl_ToDo = new ReaLTaiizor.Controls.FoxBigLabel();
+            toDoBindingSource = new BindingSource(components);
             panel3 = new Panel();
             Txt_Phone = new TextBox();
             Txt_Adress = new TextBox();
@@ -72,16 +74,14 @@
             Btn_Sale = new ReaLTaiizor.Controls.FoxButton();
             Btn_Delete = new ReaLTaiizor.Controls.FoxButton();
             Btn_PatientDelete = new ReaLTaiizor.Controls.FoxButton();
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Dgw_PatientList).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Dgw_OwnerList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Dgw_ToDoList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)toDoBindingSource).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -157,31 +157,21 @@
             Lbl_Phone.Text = "Telefon:";
             Lbl_Phone.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // patientBindingSource
-            // 
-            patientBindingSource.DataSource = typeof(Models.Patient);
-            // 
             // patientBindingSource1
             // 
             patientBindingSource1.DataSource = typeof(Models.Patient);
             // 
-            // patientBindingSource2
-            // 
-            patientBindingSource2.DataSource = typeof(Models.Patient);
-            // 
-            // patientBindingSource3
-            // 
-            patientBindingSource3.DataSource = typeof(Models.Patient);
-            // 
             // Dgw_PatientList
             // 
             Dgw_PatientList.AutoGenerateColumns = false;
+            Dgw_PatientList.BackgroundColor = Color.White;
             Dgw_PatientList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Dgw_PatientList.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, patientNameDataGridViewTextBoxColumn, patientGenderDataGridViewTextBoxColumn, BirthDate, PatientNote });
             Dgw_PatientList.DataSource = patientBindingSource1;
             Dgw_PatientList.Location = new Point(12, 233);
             Dgw_PatientList.Margin = new Padding(4, 3, 4, 3);
             Dgw_PatientList.Name = "Dgw_PatientList";
+            Dgw_PatientList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Dgw_PatientList.Size = new Size(524, 150);
             Dgw_PatientList.TabIndex = 7;
             Dgw_PatientList.CellClick += Dgw_PatientList_CellClick;
@@ -377,12 +367,14 @@
             // Dgw_OwnerList
             // 
             Dgw_OwnerList.AutoGenerateColumns = false;
+            Dgw_OwnerList.BackgroundColor = Color.White;
             Dgw_OwnerList.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             Dgw_OwnerList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Dgw_OwnerList.Columns.AddRange(new DataGridViewColumn[] { Id, ownerNameDataGridViewTextBoxColumn });
             Dgw_OwnerList.DataSource = patientOwnerBindingSource;
             Dgw_OwnerList.Location = new Point(12, 53);
             Dgw_OwnerList.Name = "Dgw_OwnerList";
+            Dgw_OwnerList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Dgw_OwnerList.Size = new Size(301, 521);
             Dgw_OwnerList.TabIndex = 4;
             Dgw_OwnerList.CellClick += Dgw_OwnerList_CellClick_1;
@@ -429,7 +421,7 @@
             panel2.Controls.Add(Dgw_ToDoList);
             panel2.Controls.Add(Lbl_ToDo);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(870, 0);
+            panel2.Location = new Point(874, 0);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(312, 589);
@@ -497,10 +489,40 @@
             // 
             // Dgw_ToDoList
             // 
+            Dgw_ToDoList.BackgroundColor = Color.White;
+            Dgw_ToDoList.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 7.25F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            Dgw_ToDoList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             Dgw_ToDoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Dgw_ToDoList.Location = new Point(16, 108);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            Dgw_ToDoList.DefaultCellStyle = dataGridViewCellStyle2;
+            Dgw_ToDoList.Location = new Point(16, 106);
             Dgw_ToDoList.Margin = new Padding(4, 3, 4, 3);
             Dgw_ToDoList.Name = "Dgw_ToDoList";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 7.25F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            Dgw_ToDoList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            Dgw_ToDoList.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            Dgw_ToDoList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            Dgw_ToDoList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Dgw_ToDoList.Size = new Size(292, 466);
             Dgw_ToDoList.TabIndex = 0;
             // 
@@ -517,6 +539,10 @@
             Lbl_ToDo.Size = new Size(292, 42);
             Lbl_ToDo.TabIndex = 3;
             Lbl_ToDo.Text = "Yapılacaklar";
+            // 
+            // toDoBindingSource
+            // 
+            toDoBindingSource.DataSource = typeof(Models.ToDo);
             // 
             // panel3
             // 
@@ -546,7 +572,7 @@
             panel3.Margin = new Padding(4, 3, 4, 3);
             panel3.Name = "panel3";
             panel3.RightToLeft = RightToLeft.No;
-            panel3.Size = new Size(553, 589);
+            panel3.Size = new Size(557, 589);
             panel3.TabIndex = 11;
             // 
             // Txt_Phone
@@ -666,7 +692,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1182, 589);
+            ClientSize = new Size(1186, 589);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -677,10 +703,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PatientCare v0.01";
             Resize += Operations_Resize;
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource3).EndInit();
             ((System.ComponentModel.ISupportInitialize)Dgw_PatientList).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -688,6 +711,7 @@
             ((System.ComponentModel.ISupportInitialize)patientOwnerBindingSource).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Dgw_ToDoList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)toDoBindingSource).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
@@ -700,10 +724,7 @@
         private Label Lbl_Name;
         private Label Lbl_Adress;
         private Label Lbl_Phone;
-        private BindingSource patientBindingSource;
         private BindingSource patientBindingSource1;
-        private BindingSource patientBindingSource2;
-        private BindingSource patientBindingSource3;
         private DataGridView Dgw_PatientList;
         private ReaLTaiizor.Controls.FoxButton Btn_AddToDo;
         private ReaLTaiizor.Controls.FoxButton Btn_AddPatient;
@@ -737,5 +758,6 @@
         private DataGridViewTextBoxColumn PatientNote;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn ownerNameDataGridViewTextBoxColumn;
+        private BindingSource toDoBindingSource;
     }
 }

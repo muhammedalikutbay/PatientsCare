@@ -346,7 +346,12 @@ namespace PatientCare.Forms
             {
                 string patientId = selectedPatientId;
                 string ownerId = selectedOwnerId;
-                var toDoAdd = new ToDoAdd(configuration,selectedPatientId,selectedOwnerId);
+                var toDoAdd = new ToDoAdd(
+                    serviceProvider,
+                    configuration,
+                    selectedPatientId,
+                    selectedOwnerId
+                );
 
                 toDoAdd.ShowDialog();
                 LoadData();
@@ -359,7 +364,22 @@ namespace PatientCare.Forms
 
         private void LoadToDosForDay(string dayDate)
         {
-            string query = "SELECT * FROM ToDo WHERE ToDoDate = @TodayDate";
+            string query =
+                @"
+                SELECT 
+                    PatientOwner.OwnerName,
+                    Patient.PatientName,
+                    ToDo.ToDoName, 
+                    ToDo.ToDoDate, 
+                    ToDo.ToDoNote 
+                FROM 
+                    ToDo
+                INNER JOIN 
+                    Patient ON ToDo.PatientId = Patient.Id
+                INNER JOIN 
+                    PatientOwner ON ToDo.OwnerId = PatientOwner.Id
+                WHERE 
+                    ToDo.ToDoDate = @TodayDate";
 
             using (var conn = new SQLiteConnection(_connectionString))
             {
@@ -373,6 +393,7 @@ namespace PatientCare.Forms
                     adapter.Fill(dt);
 
                     Dgw_ToDoList.DataSource = dt;
+                    DgwToDoListStyle();
                 }
             }
         }
@@ -387,19 +408,36 @@ namespace PatientCare.Forms
             DateTime today = DateTime.Today;
             string todayFormatted = today.ToString("yyyy-MM-dd");
 
-            string query = "SELECT * FROM ToDo WHERE ToDoDate < @Today";
+            string query =
+                @"
+               SELECT 
+                    PatientOwner.OwnerName,
+                    Patient.PatientName,
+                    ToDo.ToDoName, 
+                    ToDo.ToDoDate, 
+                    ToDo.ToDoNote 
+                FROM 
+                    ToDo
+                INNER JOIN 
+                    Patient ON ToDo.PatientId = Patient.Id
+                INNER JOIN 
+                    PatientOwner ON ToDo.OwnerId = PatientOwner.Id
+                WHERE 
+                    ToDo.ToDoDate < @Today
+                ORDER BY
+                    ToDo.Id DESC";
 
             using (var conn = new SQLiteConnection(_connectionString))
             {
                 using (var cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Today", todayFormatted);
-
                     conn.Open();
                     var adapter = new SQLiteDataAdapter(cmd);
                     var dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     Dgw_ToDoList.DataSource = dataTable;
+                    DgwToDoListStyle();
                 }
             }
         }
@@ -409,7 +447,22 @@ namespace PatientCare.Forms
             DateTime today = DateTime.Today;
             string todayFormatted = today.ToString("yyyy-MM-dd");
 
-            string query = "SELECT * FROM ToDo WHERE ToDoDate > @Today";
+            string query =
+                @"
+            SELECT 
+                PatientOwner.OwnerName,
+                Patient.PatientName, 
+                ToDo.ToDoName, 
+                ToDo.ToDoDate, 
+                ToDo.ToDoNote 
+            FROM 
+                ToDo
+            INNER JOIN 
+                Patient ON ToDo.PatientId = Patient.Id
+            INNER JOIN 
+                PatientOwner ON ToDo.OwnerId = PatientOwner.Id
+            WHERE 
+                ToDo.ToDoDate > @Today";
 
             using (var conn = new SQLiteConnection(_connectionString))
             {
@@ -422,8 +475,17 @@ namespace PatientCare.Forms
                     var dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     Dgw_ToDoList.DataSource = dataTable;
+                    DgwToDoListStyle();
                 }
             }
+        }
+
+        private void DgwToDoListStyle()
+        {
+            Dgw_ToDoList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            Dgw_ToDoList.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            Dgw_ToDoList.ColumnHeadersVisible = false;
+            Dgw_ToDoList.RowHeadersVisible = false;
         }
     }
 }

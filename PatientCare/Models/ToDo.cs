@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PatientCare.Models
+﻿namespace PatientCare.Models
 {
-    internal class ToDo : BaseModel
+    public class ToDo : BaseModel
     {
         public int OwnerId { get; set; }
         public int PatientId { get; set; }
