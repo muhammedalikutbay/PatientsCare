@@ -19,6 +19,7 @@ namespace PatientCare.Forms
         private DataTable dataTable;
         private string selectedOwnerId;
         private string selectedPatientId;
+        private string selectedToDo;
 
         public Operations(
             IDatabaseService databaseService,
@@ -52,6 +53,7 @@ namespace PatientCare.Forms
             DateTime today = DateTime.Today;
             string todayFormatted = today.ToString("yyyy-MM-dd");
             LoadToDosForDay(todayFormatted);
+            Lbl_ToDayDate.Text = "Bugünün Tarihi "+ DateTime.Now.ToString("d MMMM dddd yyyy");
         }
 
         private void Btn_AddClient_Click(object sender, EventArgs e)
@@ -365,6 +367,7 @@ namespace PatientCare.Forms
             string query =
                 @"
                 SELECT 
+                    ToDo.Id,
                     PatientOwner.OwnerName,
                     Patient.PatientName,
                     ToDo.ToDoName, 
@@ -409,6 +412,7 @@ namespace PatientCare.Forms
             string query =
                 @"
                SELECT 
+                    ToDo.Id, 
                     PatientOwner.OwnerName,
                     Patient.PatientName,
                     ToDo.ToDoName, 
@@ -423,7 +427,7 @@ namespace PatientCare.Forms
                 WHERE 
                     ToDo.ToDoDate < @Today
                 ORDER BY
-                    ToDo.Id DESC";
+                    ToDo.ToDoDate DESC";
 
             using (var conn = new SQLiteConnection(_connectionString))
             {
@@ -448,6 +452,7 @@ namespace PatientCare.Forms
             string query =
                 @"
             SELECT 
+                ToDo.Id, 
                 PatientOwner.OwnerName,
                 Patient.PatientName, 
                 ToDo.ToDoName, 
@@ -482,8 +487,60 @@ namespace PatientCare.Forms
         {
             Dgw_ToDoList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             Dgw_ToDoList.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            Dgw_ToDoList.Columns[0].Visible = false;
             Dgw_ToDoList.ColumnHeadersVisible = false;
             Dgw_ToDoList.RowHeadersVisible = false;
+        }
+
+        private void Dgw_ToDoList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < Dgw_ToDoList.Rows.Count)
+            {
+                selectedToDo = Dgw_ToDoList.Rows[e.RowIndex].Cells[0].Value?.ToString();
+            }
+        }
+
+        private void Btn_DeleteToDo_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(selectedToDo))
+            {
+                DialogResult dialogResult = MessageBox.Show(
+                    "Seçili yapılacak kaydını silmek istediğinizden emin misiniz?",
+                    "Kaydı Sil",
+                    MessageBoxButtons.YesNo
+                );
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string query = "DELETE FROM ToDo WHERE Id = @Id";
+
+                    using (var conn = new SQLiteConnection(_connectionString))
+                    {
+                        using (var cmd = new SQLiteCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", selectedToDo);
+
+                            conn.Open();
+                            int result = cmd.ExecuteNonQuery();
+
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Yapılacak kaydı başarıyla silindi.");
+                                LoadData();
+                                ClearClientInfos();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Yapılacak kaydı silinemedi.");
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir yapılacak kaydını seçin.");
+            }
         }
     }
 }

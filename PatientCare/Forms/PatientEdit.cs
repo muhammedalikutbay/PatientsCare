@@ -124,5 +124,7 @@ namespace PatientCare.Forms
             LoadPatientInfo();
             this.Close();
         }
+
+
     }
 }
