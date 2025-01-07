@@ -58,21 +58,23 @@ namespace PatientCare.Services
             cmd.ExecuteNonQuery();
         }
 
-        private void CreateTreatments()
+        private void CreateToDo()
         {
             using SQLiteConnection conn = new(_connectionString);
             conn.Open();
 
             string createTableQuery =
                 @"
-                      CREATE TABLE IF NOT EXISTS Treatment(
+                      CREATE TABLE IF NOT EXISTS ToDo(
 	                    ""Id""	INTEGER,
-	                    ""PatientId""	INTEGER,
-	                    "" TreatmentDate""	DATETIME,
-	                    ""Diagnosis""	TEXT,
-	                    "" TreatmentDetails""	TEXT,
+                        ""OwnerId"" INTEGER,
+	                    ""PatientId""	INTEGER,	                   
+                        ""ToDoName""	TEXT,
+	                    ""ToDoDate""	DATETIME,
+	                    ""ToDoNote""	TEXT,
 
 	                    PRIMARY KEY(""Id""),
+	                    FOREIGN KEY(""OwnerId"") REFERENCES ""PatientOwner""(""Id"")
 	                    FOREIGN KEY(""PatientId"") REFERENCES ""Patient""(""Id"")
                     );";
 
@@ -82,7 +84,7 @@ namespace PatientCare.Services
 
         public void CreateTables()
         {
-            CreateTreatments();
+            CreateToDo();
             CreatePatientsOwner();
             CreatePatients();
         }

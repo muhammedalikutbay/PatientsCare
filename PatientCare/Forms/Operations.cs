@@ -17,6 +17,7 @@ namespace PatientCare.Forms
         private readonly IConfiguration configuration;
         private readonly IDatabaseRepository<PatientOwner> ownerRepository;
         private readonly IDatabaseRepository<Patient> patientRepository;
+        private readonly IDatabaseRepository<ToDo> toDoRepository;
         private DataTable dataTable;
         private string selectedOwnerId;
         private string selectedPatientId;
@@ -50,6 +51,9 @@ namespace PatientCare.Forms
             Dgw_OwnerList.DataSource = dataView.ToTable();
             dataTable = dataView.ToTable();
             LoadPatientsByOwnerId(selectedOwnerId);
+            DateTime today = DateTime.Today;
+            string todayFormatted = today.ToString("yyyy-MM-dd");
+            LoadToDosForDay(todayFormatted);
         }
 
         private void Btn_AddClient_Click(object sender, EventArgs e)
@@ -321,22 +325,104 @@ namespace PatientCare.Forms
 
         private void Btn_EditPatient_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(selectedOwnerId))
+            if (!string.IsNullOrEmpty(selectedPatientId))
             {
                 string patientId = selectedPatientId;
                 string ownerId = selectedOwnerId;
 
-                PatientEdit ownerEditForm = new PatientEdit(
-                    configuration,
-                    patientId,
-                    ownerId
-                );
+                PatientEdit ownerEditForm = new PatientEdit(configuration, patientId, ownerId);
                 ownerEditForm.ShowDialog();
                 LoadData();
             }
             else
             {
                 MessageBox.Show("Lütfen bir hayvan seçin.");
+            }
+        }
+
+        private void Btn_AddToDo_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(selectedPatientId))
+            {
+                string patientId = selectedPatientId;
+                string ownerId = selectedOwnerId;
+                var toDoAdd = new ToDoAdd(configuration,selectedPatientId,selectedOwnerId);
+
+                toDoAdd.ShowDialog();
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir hayvan seçin.");
+            }
+        }
+
+        private void LoadToDosForDay(string dayDate)
+        {
+            string query = "SELECT * FROM ToDo WHERE ToDoDate = @TodayDate";
+
+            using (var conn = new SQLiteConnection(_connectionString))
+            {
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@TodayDate", dayDate);
+
+                    conn.Open();
+                    DataTable dt = new DataTable();
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+                    adapter.Fill(dt);
+
+                    Dgw_ToDoList.DataSource = dt;
+                }
+            }
+        }
+
+        private void Btn_Today_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void Btn_UntilToday_Click(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            string todayFormatted = today.ToString("yyyy-MM-dd");
+
+            string query = "SELECT * FROM ToDo WHERE ToDoDate < @Today";
+
+            using (var conn = new SQLiteConnection(_connectionString))
+            {
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Today", todayFormatted);
+
+                    conn.Open();
+                    var adapter = new SQLiteDataAdapter(cmd);
+                    var dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    Dgw_ToDoList.DataSource = dataTable;
+                }
+            }
+        }
+
+        private void Btn_Futures_Click(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            string todayFormatted = today.ToString("yyyy-MM-dd");
+
+            string query = "SELECT * FROM ToDo WHERE ToDoDate > @Today";
+
+            using (var conn = new SQLiteConnection(_connectionString))
+            {
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Today", todayFormatted);
+
+                    conn.Open();
+                    var adapter = new SQLiteDataAdapter(cmd);
+                    var dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    Dgw_ToDoList.DataSource = dataTable;
+                }
             }
         }
     }

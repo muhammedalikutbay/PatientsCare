@@ -45,7 +45,7 @@
             patientGenderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             BirthDate = new DataGridViewTextBoxColumn();
             PatientNote = new DataGridViewTextBoxColumn();
-            Btn_VacCalender = new ReaLTaiizor.Controls.FoxButton();
+            Btn_AddToDo = new ReaLTaiizor.Controls.FoxButton();
             Btn_AddPatient = new ReaLTaiizor.Controls.FoxButton();
             Btn_AddClient = new ReaLTaiizor.Controls.FoxButton();
             Btn_EditPatient = new ReaLTaiizor.Controls.FoxButton();
@@ -59,9 +59,9 @@
             patientOwnerBindingSource = new BindingSource(components);
             Txt_Search = new TextBox();
             panel2 = new Panel();
-            foxButton3 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton4 = new ReaLTaiizor.Controls.FoxButton();
-            foxButton2 = new ReaLTaiizor.Controls.FoxButton();
+            Btn_UntilToday = new ReaLTaiizor.Controls.FoxButton();
+            Btn_Futures = new ReaLTaiizor.Controls.FoxButton();
+            Btn_Today = new ReaLTaiizor.Controls.FoxButton();
             Dgw_ToDoList = new DataGridView();
             Lbl_ToDo = new ReaLTaiizor.Controls.FoxBigLabel();
             panel3 = new Panel();
@@ -225,25 +225,26 @@
             PatientNote.HeaderText = "PatientNote";
             PatientNote.Name = "PatientNote";
             // 
-            // Btn_VacCalender
+            // Btn_AddToDo
             // 
-            Btn_VacCalender.BackColor = Color.Transparent;
-            Btn_VacCalender.BaseColor = Color.FromArgb(249, 249, 249);
-            Btn_VacCalender.BorderColor = Color.FromArgb(193, 193, 193);
-            Btn_VacCalender.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            Btn_VacCalender.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            Btn_VacCalender.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            Btn_VacCalender.DownColor = Color.FromArgb(232, 232, 232);
-            Btn_VacCalender.EnabledCalc = true;
-            Btn_VacCalender.Font = new Font("Segoe UI", 10F);
-            Btn_VacCalender.ForeColor = Color.FromArgb(66, 78, 90);
-            Btn_VacCalender.Location = new Point(436, 389);
-            Btn_VacCalender.Margin = new Padding(4, 3, 4, 3);
-            Btn_VacCalender.Name = "Btn_VacCalender";
-            Btn_VacCalender.OverColor = Color.FromArgb(242, 242, 242);
-            Btn_VacCalender.Size = new Size(100, 40);
-            Btn_VacCalender.TabIndex = 8;
-            Btn_VacCalender.Text = "Yapılacak Ekle";
+            Btn_AddToDo.BackColor = Color.Transparent;
+            Btn_AddToDo.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_AddToDo.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_AddToDo.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_AddToDo.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_AddToDo.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_AddToDo.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_AddToDo.EnabledCalc = true;
+            Btn_AddToDo.Font = new Font("Segoe UI", 10F);
+            Btn_AddToDo.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_AddToDo.Location = new Point(436, 389);
+            Btn_AddToDo.Margin = new Padding(4, 3, 4, 3);
+            Btn_AddToDo.Name = "Btn_AddToDo";
+            Btn_AddToDo.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_AddToDo.Size = new Size(100, 40);
+            Btn_AddToDo.TabIndex = 8;
+            Btn_AddToDo.Text = "Yapılacak Ekle";
+            Btn_AddToDo.Click += Btn_AddToDo_Click;
             // 
             // Btn_AddPatient
             // 
@@ -422,9 +423,9 @@
             // 
             panel2.AutoSize = true;
             panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel2.Controls.Add(foxButton3);
-            panel2.Controls.Add(foxButton4);
-            panel2.Controls.Add(foxButton2);
+            panel2.Controls.Add(Btn_UntilToday);
+            panel2.Controls.Add(Btn_Futures);
+            panel2.Controls.Add(Btn_Today);
             panel2.Controls.Add(Dgw_ToDoList);
             panel2.Controls.Add(Lbl_ToDo);
             panel2.Dock = DockStyle.Right;
@@ -434,62 +435,65 @@
             panel2.Size = new Size(312, 589);
             panel2.TabIndex = 10;
             // 
-            // foxButton3
+            // Btn_UntilToday
             // 
-            foxButton3.BackColor = Color.Transparent;
-            foxButton3.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton3.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton3.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton3.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton3.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton3.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton3.EnabledCalc = true;
-            foxButton3.Font = new Font("Segoe UI", 10F);
-            foxButton3.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton3.Location = new Point(88, 60);
-            foxButton3.Name = "foxButton3";
-            foxButton3.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton3.Size = new Size(103, 40);
-            foxButton3.TabIndex = 4;
-            foxButton3.Text = "Bugüne Kadar";
+            Btn_UntilToday.BackColor = Color.Transparent;
+            Btn_UntilToday.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_UntilToday.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_UntilToday.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_UntilToday.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_UntilToday.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_UntilToday.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_UntilToday.EnabledCalc = true;
+            Btn_UntilToday.Font = new Font("Segoe UI", 10F);
+            Btn_UntilToday.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_UntilToday.Location = new Point(88, 60);
+            Btn_UntilToday.Name = "Btn_UntilToday";
+            Btn_UntilToday.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_UntilToday.Size = new Size(103, 40);
+            Btn_UntilToday.TabIndex = 4;
+            Btn_UntilToday.Text = "Bugüne Kadar";
+            Btn_UntilToday.Click += Btn_UntilToday_Click;
             // 
-            // foxButton4
+            // Btn_Futures
             // 
-            foxButton4.BackColor = Color.Transparent;
-            foxButton4.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton4.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton4.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton4.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton4.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton4.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton4.EnabledCalc = true;
-            foxButton4.Font = new Font("Segoe UI", 10F);
-            foxButton4.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton4.Location = new Point(197, 60);
-            foxButton4.Name = "foxButton4";
-            foxButton4.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton4.Size = new Size(111, 40);
-            foxButton4.TabIndex = 4;
-            foxButton4.Text = "Gelecektekiler";
+            Btn_Futures.BackColor = Color.Transparent;
+            Btn_Futures.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Futures.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_Futures.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Futures.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_Futures.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_Futures.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_Futures.EnabledCalc = true;
+            Btn_Futures.Font = new Font("Segoe UI", 10F);
+            Btn_Futures.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_Futures.Location = new Point(197, 60);
+            Btn_Futures.Name = "Btn_Futures";
+            Btn_Futures.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_Futures.Size = new Size(111, 40);
+            Btn_Futures.TabIndex = 4;
+            Btn_Futures.Text = "Gelecektekiler";
+            Btn_Futures.Click += Btn_Futures_Click;
             // 
-            // foxButton2
+            // Btn_Today
             // 
-            foxButton2.BackColor = Color.Transparent;
-            foxButton2.BaseColor = Color.FromArgb(249, 249, 249);
-            foxButton2.BorderColor = Color.FromArgb(193, 193, 193);
-            foxButton2.DisabledBaseColor = Color.FromArgb(249, 249, 249);
-            foxButton2.DisabledBorderColor = Color.FromArgb(209, 209, 209);
-            foxButton2.DisabledTextColor = Color.FromArgb(166, 178, 190);
-            foxButton2.DownColor = Color.FromArgb(232, 232, 232);
-            foxButton2.EnabledCalc = true;
-            foxButton2.Font = new Font("Segoe UI", 10F);
-            foxButton2.ForeColor = Color.FromArgb(66, 78, 90);
-            foxButton2.Location = new Point(16, 60);
-            foxButton2.Name = "foxButton2";
-            foxButton2.OverColor = Color.FromArgb(242, 242, 242);
-            foxButton2.Size = new Size(66, 40);
-            foxButton2.TabIndex = 4;
-            foxButton2.Text = "Bugün";
+            Btn_Today.BackColor = Color.Transparent;
+            Btn_Today.BaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Today.BorderColor = Color.FromArgb(193, 193, 193);
+            Btn_Today.DisabledBaseColor = Color.FromArgb(249, 249, 249);
+            Btn_Today.DisabledBorderColor = Color.FromArgb(209, 209, 209);
+            Btn_Today.DisabledTextColor = Color.FromArgb(166, 178, 190);
+            Btn_Today.DownColor = Color.FromArgb(232, 232, 232);
+            Btn_Today.EnabledCalc = true;
+            Btn_Today.Font = new Font("Segoe UI", 10F);
+            Btn_Today.ForeColor = Color.FromArgb(66, 78, 90);
+            Btn_Today.Location = new Point(16, 60);
+            Btn_Today.Name = "Btn_Today";
+            Btn_Today.OverColor = Color.FromArgb(242, 242, 242);
+            Btn_Today.Size = new Size(66, 40);
+            Btn_Today.TabIndex = 4;
+            Btn_Today.Text = "Bugün";
+            Btn_Today.Click += Btn_Today_Click;
             // 
             // Dgw_ToDoList
             // 
@@ -536,7 +540,7 @@
             panel3.Controls.Add(Lbl_ClientPatients);
             panel3.Controls.Add(Dgw_PatientList);
             panel3.Controls.Add(Lbl_Operations);
-            panel3.Controls.Add(Btn_VacCalender);
+            panel3.Controls.Add(Btn_AddToDo);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(317, 0);
             panel3.Margin = new Padding(4, 3, 4, 3);
@@ -701,7 +705,7 @@
         private BindingSource patientBindingSource2;
         private BindingSource patientBindingSource3;
         private DataGridView Dgw_PatientList;
-        private ReaLTaiizor.Controls.FoxButton Btn_VacCalender;
+        private ReaLTaiizor.Controls.FoxButton Btn_AddToDo;
         private ReaLTaiizor.Controls.FoxButton Btn_AddPatient;
         private ReaLTaiizor.Controls.FoxButton Btn_AddClient;
         private ReaLTaiizor.Controls.FoxButton Btn_EditPatient;
@@ -722,9 +726,9 @@
         private ReaLTaiizor.Controls.FoxButton Btn_Sale;
         private ReaLTaiizor.Controls.FoxButton foxButton1;
         private ReaLTaiizor.Controls.FoxButton Btn_Delete;
-        private ReaLTaiizor.Controls.FoxButton foxButton3;
-        private ReaLTaiizor.Controls.FoxButton foxButton4;
-        private ReaLTaiizor.Controls.FoxButton foxButton2;
+        private ReaLTaiizor.Controls.FoxButton Btn_UntilToday;
+        private ReaLTaiizor.Controls.FoxButton Btn_Futures;
+        private ReaLTaiizor.Controls.FoxButton Btn_Today;
         private ReaLTaiizor.Controls.FoxButton Btn_PatientDelete;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;

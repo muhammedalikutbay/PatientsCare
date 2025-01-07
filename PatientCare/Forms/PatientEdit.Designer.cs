@@ -124,9 +124,9 @@
             foxBigLabel1.Location = new Point(13, 12);
             foxBigLabel1.Margin = new Padding(4, 3, 4, 3);
             foxBigLabel1.Name = "foxBigLabel1";
-            foxBigLabel1.Size = new Size(286, 47);
+            foxBigLabel1.Size = new Size(453, 47);
             foxBigLabel1.TabIndex = 27;
-            foxBigLabel1.Text = "Hasta Ekleme";
+            foxBigLabel1.Text = "Hasta Bilgileri Düzeltme";
             // 
             // Lbl_BirthDate
             // 
