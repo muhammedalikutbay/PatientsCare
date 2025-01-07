@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Data.SQLite;
-using System.Windows.Forms;
+﻿using System.Data.SQLite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PatientCare.Interfaces;

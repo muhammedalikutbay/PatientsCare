@@ -184,7 +184,7 @@
             Lbl_Note.AutoSize = true;
             Lbl_Note.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             Lbl_Note.ForeColor = Color.FromArgb(76, 88, 100);
-            Lbl_Note.Location = new Point(470, 92);
+            Lbl_Note.Location = new Point(485, 92);
             Lbl_Note.Name = "Lbl_Note";
             Lbl_Note.Size = new Size(103, 21);
             Lbl_Note.TabIndex = 42;

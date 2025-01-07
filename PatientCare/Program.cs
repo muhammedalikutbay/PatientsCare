@@ -1,8 +1,6 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PatientCare.Forms;
 using PatientCare.Handlers;
-using PatientCare.Interfaces;
 
 namespace PatientCare
 {

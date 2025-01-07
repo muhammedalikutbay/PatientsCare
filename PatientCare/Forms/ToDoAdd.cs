@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data.SQLite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PatientCare.Interfaces;
-using PatientCare.Models;
-using PatientCare.Repositories;
 
 namespace PatientCare.Forms
 {
@@ -25,7 +12,12 @@ namespace PatientCare.Forms
         private string _selectedOwnerId;
         private readonly IServiceProvider _serviceProvider;
 
-        public ToDoAdd(IServiceProvider serviceProvider, IConfiguration configuration, string patientId, string selectedOwnerId)
+        public ToDoAdd(
+            IServiceProvider serviceProvider,
+            IConfiguration configuration,
+            string patientId,
+            string selectedOwnerId
+        )
         {
             _serviceProvider = serviceProvider;
             _patientId = patientId;
@@ -133,8 +125,6 @@ namespace PatientCare.Forms
                 }
 
                 MessageBox.Show("Yapılacak başarıyla eklendi!");
-
-               
             }
         }
 
